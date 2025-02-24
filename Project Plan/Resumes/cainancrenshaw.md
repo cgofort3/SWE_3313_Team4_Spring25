@@ -16,9 +16,6 @@ Hello, my name is Cainan Crenshaw. I am from and still live in the metro Atlanta
 
 > Introduction to Database Systems
 ## Other Links
-> 
-
-> 
 ```
-[LinkedIn](https://www.linkedin.com/)
+[Github](https://github.com/cgofort3?tab=repositories)
 ```
