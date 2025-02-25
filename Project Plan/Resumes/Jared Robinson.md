@@ -13,4 +13,3 @@ I was born and grew up in Gwinnett County. I learned about coding in elementary 
 - Computer Systems and Architecture
 ## Other Links
 - [Github](https://github.com/JaredRobinson006)
-[You can easily preview what the markdown will look like on https://markdownlivepreview.com/]
