@@ -4,7 +4,7 @@ This is the group repository for Cowboy Clearance, a team composed of 4 students
 Our project was to create a web-based shopping system for unique items, in our case cowboy hats! We've decide to use Java coding and Spring.
 
 ### Meet The Team
-- [Cainen Crenshaw](Project Plan/Resumes/Cainan Crenshaw.md)
-- [Carter Goforth](Project Plan/Resumes/Carter Goforth.md)
-- [Jared Robinson](Project Plan/Resumes/Jared Robinson.md)
-- [Ryan Kurz](Project Plan/Resumes/Ryan Kurz.md)
+- [Cainen Crenshaw](https://github.com/cgofort3/SWE_3313_Team4_Spring25/blob/main/Project%20Plan/Resumes/Cainan%20Crenshaw.md)
+- [Carter Goforth](https://github.com/cgofort3/SWE_3313_Team4_Spring25/blob/main/Project%20Plan/Resumes/Carter%20Goforth.md)
+- [Jared Robinson](https://github.com/cgofort3/SWE_3313_Team4_Spring25/blob/main/Project%20Plan/Resumes/Jared%20Robinson.md)
+- [Ryan Kurz](https://github.com/cgofort3/SWE_3313_Team4_Spring25/blob/main/Project%20Plan/Resumes/Ryan%20Kurz.md)
