@@ -8,3 +8,6 @@ Our project was to create a web-based shopping system for unique items, in our c
 - [Carter Goforth](https://github.com/cgofort3/SWE_3313_Team4_Spring25/blob/main/Project%20Plan/Resumes/Carter%20Goforth.md)
 - [Jared Robinson](https://github.com/cgofort3/SWE_3313_Team4_Spring25/blob/main/Project%20Plan/Resumes/Jared%20Robinson.md)
 - [Ryan Kurz](https://github.com/cgofort3/SWE_3313_Team4_Spring25/blob/main/Project%20Plan/Resumes/Ryan%20Kurz.md)
+
+### View our Project Plan
+- [Project Plan](https://github.com/cgofort3/SWE_3313_Team4_Spring25/blob/main/Project%20Plan/Project%20Plan.md)
