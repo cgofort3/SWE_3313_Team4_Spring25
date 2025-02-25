@@ -1,0 +1,18 @@
+# Name: Jared Robinson
+KSU Email: jrobi411@students.kennesaw.edu
+
+## Introduction
+[Brief description of your life.]
+## Technical Abilities
+- [Language/Other Technical Thing]
+- [Feel free to add more lines]
+## Technical Experience 
+- [As many jobs/interships as you had]
+- [If none, list all the classes you've taken that contribute to a CS/SWE degree]
+## Other Links
+- [Relevent links include other repos, stackoverflow, linkedin, etc.]
+- [Set hypertext via the following formatting]
+```
+[LinkedIn](https://www.linkedin.com/)
+```
+[You can easily preview what the markdown will look like on https://markdownlivepreview.com/]
