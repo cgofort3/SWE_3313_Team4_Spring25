@@ -2,17 +2,15 @@
 KSU Email: jrobi411@students.kennesaw.edu
 
 ## Introduction
-[Brief description of your life.]
+I was born and grew up in Gwinnett County. I learned about coding in elementary school, and ever since then, I have been interested in making games and solving logic problems. I'm majoring in Computer Science at KSU, and I still enjoy working on personal coding projects.
 ## Technical Abilities
-- [Language/Other Technical Thing]
-- [Feel free to add more lines]
+- C#
+- Java
+- Basic Assembly
 ## Technical Experience 
-- [As many jobs/interships as you had]
-- [If none, list all the classes you've taken that contribute to a CS/SWE degree]
+- Programming and Problem Solving II
+- Discrete Math
+- Computer Systems and Architecture
 ## Other Links
-- [Relevent links include other repos, stackoverflow, linkedin, etc.]
-- [Set hypertext via the following formatting]
-```
-[LinkedIn](https://www.linkedin.com/)
-```
+- [Github](https://github.com/JaredRobinson006)
 [You can easily preview what the markdown will look like on https://markdownlivepreview.com/]
