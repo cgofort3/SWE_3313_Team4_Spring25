@@ -9,5 +9,11 @@ Our project was to create a web-based shopping system for unique items, in our c
 - [Jared Robinson](https://github.com/cgofort3/SWE_3313_Team4_Spring25/blob/main/Project%20Plan/Resumes/Jared%20Robinson.md)
 - [Ryan Kurz](https://github.com/cgofort3/SWE_3313_Team4_Spring25/blob/main/Project%20Plan/Resumes/Ryan%20Kurz.md)
 
+### View our Team Assignments
+> [Team Assignments]()
+
+### View our Technology Selection
+> [Technology Selection](https://github.com/cgofort3/SWE_3313_Team4_Spring25/blob/7fd81fc4bf4d35eb808265cbb34367c3578d0c3c/Project%20Plan/Technology%20Selection.md)
+
 ### View our Project Plan
-- [Project Plan](https://github.com/cgofort3/SWE_3313_Team4_Spring25/blob/main/Project%20Plan/Project%20Plan.md)
+> [Project Plan](https://swe-3313-team-4-project.youtrack.cloud/gantt-charts/226-2)
