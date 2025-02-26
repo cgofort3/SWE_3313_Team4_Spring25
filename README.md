@@ -10,7 +10,7 @@ We will create a web-based shopping system for unique items, in our case cowboy 
 - [Ryan Kurz](https://github.com/cgofort3/SWE_3313_Team4_Spring25/blob/main/Project%20Plan/Resumes/Ryan%20Kurz.md)
 
 ### View our Team Assignments
-> [Team Assignments]()
+> [Team Assignments](https://github.com/cgofort3/SWE_3313_Team4_Spring25/blob/f2f956dd12322558a993dc184e896812cbc0df8a/Project%20Plan/Team%20Assignments.md)
 
 ### View our Technology Selection
 > [Technology Selection](https://github.com/cgofort3/SWE_3313_Team4_Spring25/blob/7fd81fc4bf4d35eb808265cbb34367c3578d0c3c/Project%20Plan/Technology%20Selection.md)
