@@ -13,7 +13,7 @@ We will create a web-based shopping system for unique items, in our case cowboy 
 > [Team Assignments](https://github.com/cgofort3/SWE_3313_Team4_Spring25/blob/f2f956dd12322558a993dc184e896812cbc0df8a/Project%20Plan/Team%20Assignments.md)
 
 ### View our Technology Selection
-> [Technology Selection](https://github.com/cgofort3/SWE_3313_Team4_Spring25/blob/7fd81fc4bf4d35eb808265cbb34367c3578d0c3c/Project%20Plan/Technology%20Selection.md)
+> [Technology Selection](https://github.com/cgofort3/SWE_3313_Team4_Spring25/blob/52ffd00e006e305bfe8c1368b08d359e6003438b/Project%20Plan/Technology%20Selection.md)
 
 ### View our Project Plan
 > [Project Plan](https://swe-3313-team-4-project.youtrack.cloud/gantt-charts/226-2)
