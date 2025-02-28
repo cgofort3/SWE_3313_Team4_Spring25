@@ -12,4 +12,4 @@ Hello, my name is Cainan Crenshaw. I am from and still live in the metro Atlanta
 - Computer Organization and Architecture
 - Introduction to Database Systems
 ## Other Links
-> [Github](https://github.com/cgofort3?tab=repositories)
+> [Github](https://github.com/Dignicality?tab=repositories)
