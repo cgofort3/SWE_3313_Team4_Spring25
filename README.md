@@ -17,3 +17,6 @@ We will create a web-based shopping system for unique items, in our case cowboy 
 
 ### View our Project Plan
 > [Project Plan](https://swe-3313-team-4-project.youtrack.cloud/gantt-charts/226-2)
+
+### View out project plan video presentaion
+> [project plan video presentation](https://www.loom.com/share/7eaa5fb05a144d43b437233f983cefeb)
