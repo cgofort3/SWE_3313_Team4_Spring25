@@ -1,5 +1,5 @@
 ### Ryan Kurz - Project Lead & Presenter
-> [Ryan Kurz](/Resumes/RyanKurz.md) is the project lead. He also is responsible for recording all the individual presentations. Will help with java programming.
+> [Ryan Kurz](/Resumes/Ryan%20Kurz.md) is the project lead. He also is responsible for recording all the individual presentations. Will help with java programming.
 ### Jared Robinson - Java Lead
 > [Jared Robinson](/Project%20Plan/Resumes/Jared%20Robinson.md) is the lead Java programmer. 
 ### Cainen Crenshaw - SQL/Database Lead
