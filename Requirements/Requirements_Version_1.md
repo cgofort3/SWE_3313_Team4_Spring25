@@ -18,8 +18,11 @@
 - **T1S-4**: Ensure that users cannot proceed to checkout with an empty shopping cart.
 
 ### **T1E-3: Set up basic user account functionalities**
-- **T1S-5**: Allow users to log in and register their accounts with a unique username and secure password.
+- **T1S-5**: Allow users to log in and register their accounts with a unique username and secure password (6-character minimum).
 - **T1S-6**: Allow users to search inventory by name or description.
+
+### **T1E-4: set up basic admin account function functionalites**
+- **T1S-7**: ensure that users can be made into admins by other admins.
 
 ---
 
