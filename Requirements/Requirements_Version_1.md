@@ -1,10 +1,11 @@
-## Requirements Version 1.0
+# Requirements Version 1.0
 
-### Milestones
----
+## Milestones
 - **Order Handling System**: Ensure that purchased items are automatically removed from inventory.
 - **Shopping Cart Implementation**: Enable users to add and manage items in their cart.
 - **Basic User Accounts**: Allow users to create and log into accounts.
+
+---
 
 ## Epics & Stories
 
@@ -21,13 +22,14 @@
 - **T1S-6**: Allow users to search inventory by name or description.
 
 ---
-### Priority and Effort Estimates
----
-| **ID**   | **Effort Estimate** |
-|----------|---------------------|
-| T1S-1    | 2 days              |
-| T1S-2    | 3 days              |
-| T1S-3    | 3 days              |
-| T1S-4    | 2 days              |
-| T1S-5    | 2 days              |
-| T1S-6    | 2 days              |
+
+## Priority and Effort Estimates
+
+| Story ID  | Effort Estimate | Priority        |
+|-----------|-----------------|-----------------|
+| T1S-1     | 2 days          | Must Have       |
+| T1S-2     | 3 days          | Must Have       |
+| T1S-3     | 3 days          | Must Have       |
+| T1S-4     | 2 days          | Needs to Have   |
+| T1S-5     | 2 days          | Must Have       |
+| T1S-6     | 2 days          | Wants to Have   |
