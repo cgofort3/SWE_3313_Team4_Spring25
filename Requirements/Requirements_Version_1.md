@@ -17,7 +17,7 @@
 - **T1S-1**: Remove purchased items from inventory automatically.  
 - **T1S-2**: Develop a shopping cart system.
 
-### Priority and Effort Estimates
+### Effort Estimates
 ---
 | **ID**   | **Effort Estimate** |
 |----------|---------------------|
