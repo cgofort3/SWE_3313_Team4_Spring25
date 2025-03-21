@@ -6,6 +6,8 @@
 - **Shopping Cart Implementation**: Enable users to add and manage items in their cart.
 - **Basic User Accounts**: Allow users to create and log into accounts.
 
+## Epics & Stories
+
 ### **T1E-1: Implement an automated inventory update system**
 - **T1S-1**: Remove purchased items from inventory automatically.
 
@@ -19,7 +21,6 @@
 - **T1S-6**: Allow users to search inventory by name or description.
 
 ---
-
 ### Priority and Effort Estimates
 ---
 | **ID**   | **Effort Estimate** |
