@@ -1,0 +1,60 @@
+# Cowboy Clearance - Requirements Document
+
+---
+
+## Version 1.0
+
+### Milestones
+
+- **Order Handling System**: Ensure that purchased items are automatically removed from inventory.  
+- **Admin Management**: Provide admin capabilities for inventory management.  
+- **Shopping Cart Implementation**: Enable users to add and manage items in their cart.  
+- **Basic User Accounts**: Allow users to create and log into accounts.  
+- **UI & Navigation**: Provide basic UI elements like navigation and item display.
+
+---
+
+### Epics
+
+- **T1E-1**: Implement an automated inventory update system.  
+- **T1E-2**: Develop an admin interface for managing inventory.  
+- **T1E-3**: Create a functional shopping cart system.  
+- **T1E-4**: Set up basic user account functionalities.  
+- **T1E-5**: Implement UI/UX components and navigation.
+
+---
+
+### Stories
+
+- **T1S-1**: The system must automatically remove an item from inventory after purchase.  
+- **T1S-2**: Admins must be able to remove inventory items manually. (Non-Functional Requirement)  
+- **T1S-3**: The system must allow users to add items to their shopping cart.  
+- **T1S-4**: The system should allow cart persistence based on customer input.  
+- **T1S-5**: The system must provide basic UI elements and navigation. (Non-Functional Requirement)  
+
+---
+
+### Priority and Effort Estimates
+
+| **ID**   | **Priority**    | **Effort Estimate** | **Functional / Non-Functional** |
+|----------|-----------------|---------------------|---------------------------------|
+| T1S-1    | Must Have       | 2 days              | Functional                     |
+| T1S-2    | Non-Functional  | 1.5 days            | Non-Functional                 |
+| T1S-3    | Must Have       | 3 days              | Functional                     |
+| T1S-4    | Needs to Have   | 1 day               | Functional                     |
+| T1S-5    | Non-Functional  | 2 days              | Non-Functional                 |
+
+---
+
+### Functional Requirements
+
+- The system must automatically remove an item from inventory after purchase.
+- The system must allow users to add and remove items from their shopping cart.
+- The system must support user account creation and login.
+
+### Non-Functional Requirements
+
+- Admins should be able to remove inventory items manually.
+- The system should provide intuitive UI navigation. Filtering and other advanced navigation features are planned for future updates unless explicitly requested.
+
+---
