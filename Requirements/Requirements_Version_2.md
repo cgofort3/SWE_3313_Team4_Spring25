@@ -22,7 +22,7 @@
 - **T2S-4**: The system must allow users to track the status of their orders.  
 - **T2S-5**: The system must support returns and refunds.
 
-### Priority and Effort Estimates
+### Effort Estimates
 ---
 | **ID**   | **Effort Estimate** |
 |----------|---------------------|
