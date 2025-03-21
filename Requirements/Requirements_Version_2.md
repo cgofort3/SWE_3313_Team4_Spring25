@@ -1,47 +1,33 @@
-## Requiremenst Version 2.0
+## Version 2.0
 
 ### Milestones
-
+---
 - **Admin Management**: Expand admin capabilities for managing inventory.  
 - **User Account Enhancements**: Implement full user account features.  
-- **Payment System**: Integrate real credit card processing.
-
----
+- **Payment System**: Integrate real credit card processing.  
+- **Order Handling and Shipping**: Implement order tracking and return/refund capabilities.
 
 ### Epics
-
+---
 - **T2E-1**: Enhance admin interface with additional features for managing inventory.  
 - **T2E-2**: Implement user account features such as email verification and password changes.  
-- **T2E-3**: Integrate real payment processing system.
-
----
+- **T2E-3**: Integrate real payment processing system.  
+- **T2E-4**: Implement order tracking and return/refund system.
 
 ### Stories
-
+---
 - **T2S-1**: Admins must be able to edit or remove inventory items manually.  
 - **T2S-2**: The system must support email verification for new users.  
-- **T2S-3**: The system must support real credit card processing.
-
----
+- **T2S-3**: The system must support real credit card processing.  
+- **T2S-4**: The system must allow users to track the status of their orders.  
+- **T2S-5**: The system must support returns and refunds.
 
 ### Priority and Effort Estimates
-
-| **ID**   | **Priority**    | **Effort Estimate** | **Functional / Non-Functional** |
-|----------|-----------------|---------------------|---------------------------------|
-| T2S-1    | Needs to Have   | 3 days              | Functional                     |
-| T2S-2    | Needs to Have   | 2 days              | Functional                     |
-| T2S-3    | Must Have       | 4 days              | Functional                     |
-
 ---
-
-### Functional Requirements
-
-- Admins must be able to edit or remove inventory items manually.
-- The system must support email verification for new accounts.
-- The payment system must support real credit card processing.
-
-### Non-Functional Requirements
-
-- Real credit card processing is planned for future updates.
-
----
+| **ID**   | **Effort Estimate** |
+|----------|---------------------|
+| T2S-1    | 3 days              |
+| T2S-2    | 2 days              |
+| T2S-3    | 4 days              |
+| T2S-4    | 3 days              |
+| T2S-5    | 3 days              |
