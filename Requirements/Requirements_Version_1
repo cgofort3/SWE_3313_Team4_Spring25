@@ -1,5 +1,7 @@
 # Cowboy Clearance - Requirements Document
 
+---
+
 ## Version 1.0
 
 ### Milestones
@@ -10,6 +12,8 @@
 - **Basic User Accounts**: Allow users to create and log into accounts.  
 - **UI & Navigation**: Provide basic UI elements like navigation and item display.
 
+---
+
 ### Epics
 
 - **T1E-1**: Implement an automated inventory update system.  
@@ -18,6 +22,8 @@
 - **T1E-4**: Set up basic user account functionalities.  
 - **T1E-5**: Implement UI/UX components and navigation.
 
+---
+
 ### Stories
 
 - **T1S-1**: The system must automatically remove an item from inventory after purchase.  
@@ -25,6 +31,8 @@
 - **T1S-3**: The system must allow users to add items to their shopping cart.  
 - **T1S-4**: The system should allow cart persistence based on customer input.  
 - **T1S-5**: The system must provide basic UI elements and navigation. (Non-Functional Requirement)  
+
+---
 
 ### Priority and Effort Estimates
 
@@ -36,6 +44,8 @@
 | T1S-4    | Needs to Have   | 1 day               | Functional                     |
 | T1S-5    | Non-Functional  | 2 days              | Non-Functional                 |
 
+---
+
 ### Functional Requirements
 
 - The system must automatically remove an item from inventory after purchase.
@@ -46,3 +56,5 @@
 
 - Admins should be able to remove inventory items manually.
 - The system should provide intuitive UI navigation. Filtering and other advanced navigation features are planned for future updates unless explicitly requested.
+
+---
