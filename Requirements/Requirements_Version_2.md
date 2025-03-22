@@ -1,36 +1,51 @@
-# Requirements Version 2.0
+### **Version 2**
 
-## Milestones
-- **Admin Management**: Expand admin capabilities for managing inventory.
-- **User Account Enhancements**: Implement full user account features.
-- **Payment System**: Integrate real credit card processing.
-- **Order Handling and Shipping**: Implement order tracking and return/refund capabilities.
+#### **UI & User Flow Design**
+- **T2E-1: Simple UI for Adding More Admins**
+  - **T2S-1: Implement Simple UI to Add More Admins**
+    - **Priority:** Must Have  
+    - **Estimated Effort:** 2 days  
+    - **Functional or Non-Functional:** Functional  
+    - **Story Description:** Provide a simple UI for existing admins to add new admin users. Include input fields for username, password, and role.
+
+#### **Inventory Enhancements & Admin Features**
+- **T2E-2: Inventory and Item Picture Enhancements**
+  - **T2S-2: Implement Multiple Pictures for Inventory Items**
+    - **Priority:** Needs to Have  
+    - **Estimated Effort:** 2-3 days  
+    - **Functional or Non-Functional:** Functional  
+    - **Story Description:** Allow users to view multiple pictures for each item in the inventory.
+
+- **T2E-3: Inventory Management Enhancements**
+  - **T2S-3: Redirect to Inventory Screen When All Items Are Removed**
+    - **Priority:** Must Have  
+    - **Estimated Effort:** 1 day  
+    - **Functional or Non-Functional:** Functional  
+    - **Story Description:** Automatically return to the inventory screen when all items are removed from the shopping cart.
+
+#### **Sales Report Enhancements**
+- **T2E-4: Admin Sales Report Enhancements**
+  - **T2S-4: Click on Sold Item in Sales Report to Show Receipt**
+    - **Priority:** Must Have  
+    - **Estimated Effort:** 1-2 days  
+    - **Functional or Non-Functional:** Functional  
+    - **Story Description:** Allow admins to click on a sold item in the sales report to view the related receipt.
+
+#### **Email Receipt Feature**
+- **T2E-5: Email Receipt to Customer**
+  - **T2S-5: Automatically Email Receipt to Customer**
+    - **Priority:** Must Have  
+    - **Estimated Effort:** 2 days  
+    - **Functional or Non-Functional:** Functional  
+    - **Story Description:** Automatically send a receipt email to the customer upon completing their purchase.
+
+#### **Inventory Addition Page**
+- **T2E-6: Manual Inventory Entry**
+  - **T2S-6: Add a Page to Enter New Inventory**
+    - **Priority:** Must Have  
+    - **Estimated Effort:** 3 days  
+    - **Functional or Non-Functional:** Functional  
+    - **Story Description:** Implement a page where admins can enter new inventory items directly into the system and database. Include fields for item name, description, price, and image uploads.
 
 ---
 
-## Epics & Stories
-
-### **T2E-1: Enhance admin interface with additional features for managing inventory**
-- **T2S-1**: Admins must be able to edit or remove inventory items manually.
-
-### **T2E-2: Implement user account features such as email verification and password changes**
-- **T2S-2**: The system must support email verification for new users.
-
-### **T2E-3: Integrate real payment processing system**
-- **T2S-3**: The system must support real credit card processing.
-
-### **T2E-4: Implement order tracking and return/refund system**
-- **T2S-4**: The system must allow users to track the status of their orders.
-- **T2S-5**: The system must support returns and refunds.
-
----
-
-## Priority and Effort Estimates
-
-| Story ID  | Effort Estimate | Priority        |
-|-----------|-----------------|-----------------|
-| T2S-1     | 3 days          | Must Have       |
-| T2S-2     | 2 days          | Must Have       |
-| T2S-3     | 4 days          | Must Have       |
-| T2S-4     | 3 days          | Must Have       |
-| T2S-5     | 3 days          | Needs to Have   |
