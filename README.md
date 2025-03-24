@@ -27,10 +27,10 @@ We will create a web-based shopping system for unique items, in our case cowboy 
 Below are links to the all the neccessary documentation relating to requirements, including the requirements themselves, a use-case diagram, and a decision table, and a presentation of all of them.
 
 ### Requirements
- - [Requirements](/Requirements/Requirements.md)
+ - [Requirements](/Requirements/Requirements_Version_2.md)
 
 ### Use Case Diagram
- - [Use Case Diagram](/Requirements/Requirements.md)
+ - [Use Case Diagram](/Requirements/Use_Case_Diagram.md)
 
 ### Decision Table
  - [Decision Table](/Requirements/Requirements.md)
