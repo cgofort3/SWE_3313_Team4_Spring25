@@ -24,7 +24,7 @@ We will create a web-based shopping system for unique items, in our case cowboy 
 > [Project Plan Video Presentation](https://www.loom.com/share/7eaa5fb05a144d43b437233f983cefeb)
 
 ## Section 2: Requirements
-Below are links to the all the neccessary documentation relating to requirements, including the requirements themselves, a use-case diagram, and a decision table, and a presentation of all of them.
+Below are links to the all the neccessary documentation relating to requirements, including the requirements themselves, a use-case diagram, a decision table, and the accompanying presentation.
 
 ### Requirements
  - [Requirements (Version 1)](/Requirements/Requirements_Version_1.md)
