@@ -34,7 +34,7 @@ Below are links to the all the neccessary documentation relating to requirements
  - [Use Case Diagram](/Requirements/Use_Case_Diagram.md)
 
 ### Decision Table
- - [Decision Table](/Requirements/Requirements.md)
+ - [Decision Table](/Requirements/Decision_Table.md)
 
 ### Requirements Video Presentation
  - TBD
