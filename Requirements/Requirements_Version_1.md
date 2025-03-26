@@ -37,11 +37,11 @@
   - **Estimated Effort:** 1 day  
   - **Functional or Non-Functional:** Functional  
   - **Story Description:** Format item prices in US dollars, including a dollar sign ($), commas for thousands, and two decimal places (e.g., $1,234.56).
-- **T1S-6: Display Item Prices in Base 10 Format**  
+- **T1S-6: store Item Prices in Base 10 Format**  
   - **Priority:** Must Have  
   - **Estimated Effort:** 1 day  
   - **Functional or Non-Functional:** Functional  
-  - **Story Description:** Ensure that item prices are displayed in base 10 format (e.g., no floating-point values) to avoid rounding issues.
+  - **Story Description:** Ensure that item prices are stored and displayed in base 10 format (e.g., no floating-point values) to avoid rounding issues.
 - **T1S-7: Implement Search Functionality for Inventory**  
   - **Priority:** Must Have  
   - **Estimated Effort:** 1-2 days  
@@ -131,11 +131,11 @@
   - **Estimated Effort:** 1 day  
   - **Functional or Non-Functional:** Functional  
   - **Story Description:** Provide users with an option to return to the main page from the receipt page after completing an order.
-- **T1S-22: Allow Users to Return to Checkout Page from Receipt Page** *(Ask Professor)*  
+- **T1S-22: Allow Users to Return to their cart Page from Receipt Page**   
   - **Priority:** Needs to Have  
   - **Estimated Effort:** 1 day  
   - **Functional or Non-Functional:** Functional  
-  - **Story Description:** Allow users to navigate back to the checkout page from the receipt page. (Clarify with the professor if needed)
+  - **Story Description:** Allow users to navigate back to their cart page from the receipt page. 
 
 ---
 
