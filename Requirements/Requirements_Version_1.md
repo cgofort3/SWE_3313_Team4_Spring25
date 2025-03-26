@@ -37,7 +37,7 @@
   - **Estimated Effort:** 1 day  
   - **Functional or Non-Functional:** Functional  
   - **Story Description:** Format item prices in US dollars, including a dollar sign ($), commas for thousands, and two decimal places (e.g., $1,234.56).
-- **T1S-6: store Item Prices in Base 10 Format**  
+- **T1S-6: Store Item Prices in Base 10 Format**  
   - **Priority:** Must Have  
   - **Estimated Effort:** 1 day  
   - **Functional or Non-Functional:** Functional  
