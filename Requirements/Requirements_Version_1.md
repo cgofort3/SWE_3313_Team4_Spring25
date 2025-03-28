@@ -78,7 +78,7 @@
   - **Functional or Non-Functional:** Functional  
   - **Story Description:** After clicking checkout, users must see a list of the items they have selected, including quantity, price, and subtotal in US dollars, before finalizing the purchase.
 - **T1S-13: Allow Users to Return to Inventory from Shopping Cart**  
-  - **Priority:** Needs to Have  
+  - **Priority:** Must Have  
   - **Estimated Effort:** 1 day  
   - **Functional or Non-Functional:** Functional  
   - **Story Description:** Provide an option for users to return to the inventory page from the shopping cart to continue shopping without losing their current cart contents.
@@ -127,12 +127,12 @@
   - **Functional or Non-Functional:** Functional  
   - **Story Description:** Implement an admin sales report that shows all purchases and users. Allow exporting the report to a CSV file.
 - **T1S-21: Allow Users to Return to Main Page from Receipt Page**  
-  - **Priority:** Needs to Have  
+  - **Priority:** Must Have 
   - **Estimated Effort:** 1 day  
   - **Functional or Non-Functional:** Functional  
   - **Story Description:** Provide users with an option to return to the main page from the receipt page after completing an order.
 - **T1S-22: Allow Users to Return to their cart Page from Receipt Page**   
-  - **Priority:** Needs to Have  
+  - **Priority:** Must Have  
   - **Estimated Effort:** 1 day  
   - **Functional or Non-Functional:** Functional  
   - **Story Description:** Allow users to navigate back to their cart page from the receipt page. 
@@ -142,7 +142,7 @@
 ## **Cart Persistence and Navigation**
 ### **T1E-7: Cart Persistence and User Navigation**
 - **T1S-23: Retain Cart Items When Returning to Main Page Without Completing Order**  
-  - **Priority:** Needs to Have  
+  - **Priority:** Must Have  
   - **Estimated Effort:** 1 day  
   - **Functional or Non-Functional:** Functional  
   - **Story Description:** Ensure that users can return to the main page without completing the order and retain their cart contents.
