@@ -45,5 +45,5 @@ Below are links to our high-fidelity prototype created using Marvel, along with 
 ### Prototype
 > TBD
 
-### UI Deisgn Video Presentation
+### UI Design Video Presentation
 > TBD
