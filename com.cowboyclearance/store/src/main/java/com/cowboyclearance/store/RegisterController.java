@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class RegisterController {
     @GetMapping("/register")
     String getRegister(Model model){
-        model.addAttribute("username", "");
-        model.addAttribute("password", "");
         return "register";
     }
 
@@ -21,6 +19,6 @@ public class RegisterController {
         User user = new User(username, password);
         model.addAttribute("user", user);
         System.out.println(User.getUsers());
-        return "login";
+        return "register";
     }
 }
