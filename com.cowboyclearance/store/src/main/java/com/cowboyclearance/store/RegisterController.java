@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class RegisterController {
     @GetMapping("/register")
     String getRegister(Model model){
+        model.addAttribute("username", "");
+        model.addAttribute("password", "");
         return "register";
     }
 
