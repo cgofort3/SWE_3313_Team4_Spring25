@@ -27,14 +27,23 @@ We will create a web-based shopping system for unique items, in our case cowboy 
 Below are links to the all the neccessary documentation relating to requirements, including the requirements themselves, a use-case diagram, a decision table, and the accompanying presentation.
 
 ### Requirements
- - [Requirements (Version 1)](/Requirements/Requirements_Version_1.md)
- - [Requirements (Version 2)](/Requirements/Requirements_Version_2.md)
+> [Requirements (Version 1)](/Requirements/Requirements_Version_1.md)
+> [Requirements (Version 2)](/Requirements/Requirements_Version_2.md)
 
 ### Use Case Diagram
- - [Use Case Diagram](/Requirements/Use_Case_Diagram.md)
+> [Use Case Diagram](/Requirements/Use_Case_Diagram.md)
 
 ### Decision Table
- - [Decision Table](/Requirements/Decision_Table.md)
+> [Decision Table](/Requirements/Decision_Table.md)
 
 ### Requirements Video Presentation
- - [Requirments Video Presentation](https://www.loom.com/share/156bdc78abaa4f239fd941a164b67c68)
+> [Requirements Video Presentation](https://www.loom.com/share/156bdc78abaa4f239fd941a164b67c68)
+
+## Section 3: UI Design
+Below are links to our high-fidelity prototype created using Marvel, along with a video presentation of it.
+
+### Prototype
+> TBD
+
+### UI Design Video Presentation
+> TBD
