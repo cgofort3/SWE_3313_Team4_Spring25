@@ -43,7 +43,7 @@ Below are links to the all the neccessary documentation relating to requirements
 Below are links to our high-fidelity prototype created using Marvel, along with a video presentation of it.
 
 ### Prototype
-> TBD
+> [Marvel Prototype](https://marvelapp.com/prototype/116i68fa)
 
 ### UI Design Video Presentation
 > [UI Design Video Presentation](https://www.loom.com/share/b1f506e5ac3940ff9e01a5a6a896a7a3)
