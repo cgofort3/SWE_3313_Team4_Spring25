@@ -46,4 +46,4 @@ Below are links to our high-fidelity prototype created using Marvel, along with 
 > TBD
 
 ### UI Design Video Presentation
-> TBD
+> [UI Design Video Presentation](https://www.loom.com/share/b1f506e5ac3940ff9e01a5a6a896a7a3)
