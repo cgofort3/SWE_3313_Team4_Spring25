@@ -1,4 +1,4 @@
-package com.cowboyclearance.store;
+package com.cowboyclearance.store.database;
 
 import java.util.ArrayList;
 

@@ -1,7 +1,6 @@
-package com.cowboyclearance.store;
+package com.cowboyclearance.store.database;
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 public class User {
     private static int nextId = 1;
@@ -67,6 +66,7 @@ public class User {
         return users;
     }
 
+    @Override
     public String toString(){
         return "id : " + id + "\nusername: " + username + "\npassword: " + password + "\n\n";
     }
