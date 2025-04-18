@@ -52,7 +52,7 @@ Below are links to our high-fidelity prototype created using Marvel, along with 
 Below are links to our technical design documents including our language selection, entity tables, erd diragram, data storage plan, and our coding style guide which is apart of the language selection.
 
 ### Language Selection
-> [Language Selection](https://github.com/cgofort3/SWE_3313_Team4_Spring25/blob/main/Technical_Design/Language_Selection.md)
+> [Language Selection](/Technical_Design/Language_Selection.md)
 
 ### Entity Tables
 > [Tables of Fields for Entities](https://kennesawedu-my.sharepoint.com/:w:/g/personal/ccrens12_students_kennesaw_edu/EdBeR_kc681EvzLIJzZ21P4BWNWtPYT9rZM0mIAbUDnbWw?e=5NwmHD)
