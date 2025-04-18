@@ -49,7 +49,7 @@ Below are links to our high-fidelity prototype created using Marvel, along with 
 > [UI Design Video Presentation](https://www.loom.com/share/b1f506e5ac3940ff9e01a5a6a896a7a3)
 
 ## Section 4: Technical Design
-Below are links to our technical design documents including our language selection, entity tables, erd diragram, data storage plan, and our coding style guide which is apart of the language selection.
+Below are links to our technical design documents including our language selection, entity tables, erd diragram, data storage plan, seed data, and our coding style guide which is apart of the language selection.
 
 ### Language Selection
 > [Language Selection](/Technical_Design/Language_Selection.md)
@@ -63,5 +63,5 @@ Below are links to our technical design documents including our language selecti
 ### Data Storage Plan
 >[Data Storage Plan](/Technical_Design/Data_Storage_Plan.md)
 
-###
+### Seed Data
 >[Seed Data](/Technical_Design/Seed_Data.md)
