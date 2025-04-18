@@ -1,6 +1,4 @@
-# Technical Design: Introduction
-
-At this stage, we have spent significant time planning, researching, and prototyping our project. We now have a strong understanding of how we will implement the core components of the system. This technical design document outlines the critical technologies we will use, including the programming language, frameworks, and key resources to support development.
+### Language and Framework Selection
 
 ## Implementation Language
 
