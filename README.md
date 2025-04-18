@@ -49,7 +49,7 @@ Below are links to our high-fidelity prototype created using Marvel, along with 
 > [UI Design Video Presentation](https://www.loom.com/share/b1f506e5ac3940ff9e01a5a6a896a7a3)
 
 ## Section 4: Technical Design
-Below are links to our technical design documents.
+Below are links to our technical design documents including our language selection, entity tables, erd diragram, data storage plan, and our coding style guide.
 
 ### Language Selection
 > [Language Selection](https://github.com/cgofort3/SWE_3313_Team4_Spring25/blob/main/Technical_Design/Language_Selection.md)
