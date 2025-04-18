@@ -16,6 +16,8 @@ public class SQLite {
                 )
         {
             statement.setQueryTimeout(30);  // set timeout to 30 sec.
+            statement.executeUpdate("insert into person values(2, 'yui')");
+            //ResultSet rs = statement.executeQuery("select * from person");
 
 
 
