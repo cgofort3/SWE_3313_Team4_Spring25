@@ -54,3 +54,5 @@ Below are links to our high-fidelity prototype created using Marvel, along with 
 > [Tables of Fields for Entities](https://kennesawedu-my.sharepoint.com/:w:/g/personal/ccrens12_students_kennesaw_edu/EdBeR_kc681EvzLIJzZ21P4BWNWtPYT9rZM0mIAbUDnbWw?e=5NwmHD)
 
 > [ERD Diagram](https://lucid.app/lucidchart/1d59913b-0fc8-44f2-b7e7-e9a8fb350977/edit?viewport_loc=120%2C-40%2C2072%2C1032%2C0_0&invitationId=inv_449f97f5-9706-4b29-9897-827d58cfb5d1)
+
+>[Data Storage Plan](https://github.com/cgofort3/SWE_3313_Team4_Spring25/blob/main/Technical_Design/Data_Storage_Plan.md)
