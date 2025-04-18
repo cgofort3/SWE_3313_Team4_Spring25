@@ -47,3 +47,5 @@ Below are links to our high-fidelity prototype created using Marvel, along with 
 
 ### UI Design Video Presentation
 > [UI Design Video Presentation](https://www.loom.com/share/b1f506e5ac3940ff9e01a5a6a896a7a3)
+
+## Section 4: Technical Design
