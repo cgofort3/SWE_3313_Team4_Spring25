@@ -65,3 +65,6 @@ Below are links to our technical design documents including our language selecti
 
 ### Seed Data
 >[Seed Data](/Technical_Design/Seed_Data.md)
+
+### Technical Design video
+>[Technical Design Video](https://www.loom.com/share/e3355d699fee462aa8e9ebc4b6030c4a)
