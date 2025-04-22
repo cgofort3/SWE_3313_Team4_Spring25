@@ -8,7 +8,7 @@
 </head>
 <body>
 <!--th:object="${user}"-->
-<form action="#" th:action="@{/register}"  method="post">
+<form action="#" th:action="@{/register}" th:object="${login}" method="post">
     <div class="mb-3">
         <label for="InputUsername1" class="form-label">Username</label>
         <input type="text" th:field="*{username}" class="form-control" id="InputUsername1" aria-describedby="usernameHelp">
@@ -16,7 +16,7 @@
     </div>
     <div class="mb-3">
         <label for="InputPassword" class="form-label">Password</label>
-        <input type="text" th:field="*{password}" class="form-control" id="InputPassword">
+        <input type="password" th:field="*{password}" class="form-control" id="InputPassword" placeholder="Password">
     </div>
     <div class="mb-3 form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1">

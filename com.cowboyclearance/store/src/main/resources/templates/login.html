@@ -9,42 +9,26 @@
 
 <body>
 
+
 <nav class="navbar fixed-top navbar-expand-lg bg-dark" style="color: #FFFFFF;">
     <div class="container-fluid text-reset">
         <a class="navbar-brand text-reset" href="#">Cowboy Clearance</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse text-reset" id="navbarNavAltMarkup">
-            <div class="navbar-nav text-reset">
-                <a class="nav-link active text-reset" aria-current="page" href="#">Shop</a>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
 
-                <a class="nav-link" href="#">Cart</a>
-                <a class="nav-link" href="#">Logout</a>
-            </div>
-
-        </div>
     </div>
 </nav>
+
+
 <div class="container" style="background-color: #E5E9F2; height: 100vh; align-content: center;">
-    <div class="container" style="background-color: #FFFFFF; width: 50vh; max-width: 80%; padding-bottom: 1em; padding-top: 1em">
-        <form style="width: 50%; margin-left: auto; margin-right: auto;">
+    <div class="container rounded-3" style="background-color: #FFFFFF; width: 50vh; max-width: 80%; padding-bottom: 1em; padding-top: 1em">
+        <form style="width: 50%; height: 50%; margin-left: auto; margin-right: auto;" action="#" th:action="@{/login}" th:object="${login}" method="post">
             <div class="mb-3">
-                <label for="exampleInputUsername1" class="form-label">Username</label>
-                <input type="email" class="form-control" id="exampleInputUsername1" aria-describedby="usernameHelp">
-                <div id="usernameHelp" class="form-text">We'll never share your username with anyone else.</div>
+                <label for="usernameInput" class="form-label">Username</label>
+                <input type="text" th:field="*{username}" class="form-control" id="usernameInput" placeholder="Username">
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                <label for="passwordInput" class="form-label">Password</label>
+                <input type="password" th:field="*{password}" class="form-control" id="passwordInput" placeholder="Password">
+                <label for="passwordInput" class="form-label" th:if="${wrongPassword}">Incorrect password.</label>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

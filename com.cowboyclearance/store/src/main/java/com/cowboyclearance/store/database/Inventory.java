@@ -3,16 +3,21 @@ package com.cowboyclearance.store.database;
 import java.util.ArrayList;
 
 public class Inventory {
-    private static int nextId = 0;
     private int id;
     private String name;
     private int price;
     private String description;
     private String image;
     private static ArrayList<Inventory> inventory;
-    public Inventory(String name, int price, String description, String image) {
-        id = ++nextId;
+
+    public static Inventory createInventory(){
+        SQLite.query("");
+        return new Inventory();
+    }
+    public Inventory(){}
+    public Inventory(int id, String name, int price, String description, String image) {
         this.name = name;
+        this.id = id;
         this.price = price;
         this.description = description;
         this.image = image;

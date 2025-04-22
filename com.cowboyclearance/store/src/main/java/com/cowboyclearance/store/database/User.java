@@ -3,39 +3,40 @@ package com.cowboyclearance.store.database;
 import java.util.ArrayList;
 
 public class User {
-    private static int nextId = 1;
     private int id;
     private Boolean admin;
     private String username;
     private String password;
     private ArrayList<Inventory> cart;
-    private static ArrayList<User> users;
+    private static ArrayList<User> users = new ArrayList<User>();
 
-    public User(Boolean admin, String username, String password) {
+    public static User createUser(String username, String password){
+        SQLite.query("");//Cainan use this to create a new user in the table
+        return new User();
+    }
+
+    public User(Boolean admin, int id, String username, String password) {
         this.admin = admin;
+        this.id = id;
         this.username = username;
         this.password = password;
         this.cart = new ArrayList<Inventory>();
-        this.id = ++nextId;
-        users = new ArrayList<User>();
         users.add(this);
     }
     public User(){
+        this.id = -1;
         this.admin = false;
         this.username = "";
         this.password = "";
         this.cart = new ArrayList<Inventory>();
-        this.id = ++nextId;
-        users = new ArrayList<User>();
         users.add(this);
     }
-    public User(String username, String password) {
+    public User(int id, String username, String password) {
+        this.id = id;
         this.admin = false;
         this.username = username;
         this.password = password;
         this.cart = new ArrayList<Inventory>();
-        this.id = ++nextId;
-        users = new ArrayList<User>();
         users.add(this);
     }
 

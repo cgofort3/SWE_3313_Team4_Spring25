@@ -12,15 +12,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class RegisterController {
     @GetMapping("/register")
     String getRegister(Model model){
-        model.addAttribute("username", "");
-        model.addAttribute("password", "");
+        model.addAttribute("login", new Login());
         return "register";
     }
 
     @PostMapping("/register")
-    String postRegister(@ModelAttribute String password, @ModelAttribute String username, Model model){
-        User user = new User(username, password);
-        model.addAttribute("user", user);
+    String postRegister(@ModelAttribute Login login, Model model){
+        User user = new User(-1, login.getUsername(), login.getPassword());
+        model.addAttribute("login", new Login());
         System.out.println(User.getUsers());
         return "register";
     }
