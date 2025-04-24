@@ -29,7 +29,6 @@ public class SQLite {
                 )
         {
             statement.setQueryTimeout(30);  // set timeout to 30 sec.
-            //statement.executeUpdate("insert into person values(2, 'yui')");
             result = statement.executeQuery(query);
 
         }
@@ -50,8 +49,7 @@ public class SQLite {
                 )
         {
             statement.setQueryTimeout(30);  // set timeout to 30 sec.
-            //statement.executeUpdate("insert into person values(2, 'yui')");
-            //ResultSet rs = statement.executeQuery("select * from person");
+            statement.executeUpdate(query);
 
 
 
@@ -64,7 +62,7 @@ public class SQLite {
         }
     }
     public static void addUser(User user) {
-        update("INSERT INTO sqlite_master (name) VALUES ('Cardinal');");//Cainan add queries and methods and stuff here idk how it all works
+        update("");//Cainan add queries and methods and stuff here idk how it all works
     }
     public static void updateUser(User user) {
 

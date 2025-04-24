@@ -8,7 +8,6 @@ public class Inventory {
     private int price;
     private String description;
     private String image;
-    private static ArrayList<Inventory> inventory;
 
     public static Inventory createInventory(){
         SQLite.query("");
@@ -21,9 +20,6 @@ public class Inventory {
         this.price = price;
         this.description = description;
         this.image = image;
-    }
-    public static Inventory[] getInventory() {
-        return inventory.toArray(new Inventory[inventory.size()]);
     }
     public int getId() {
         return id;
