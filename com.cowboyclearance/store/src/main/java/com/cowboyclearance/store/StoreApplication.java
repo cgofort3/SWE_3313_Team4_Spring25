@@ -17,6 +17,7 @@ public class StoreApplication {
 
         SpringApplication.run(StoreApplication.class, args);
         System.out.println("Hello World");
+        SQLite.initializeDatabase();
         ArrayList<User> users = new ArrayList<>();
         users.add(new User(0, "Jared", "1234"));
         users.add(new User(0, "Ryan", "123456"));
