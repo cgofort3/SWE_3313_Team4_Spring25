@@ -20,7 +20,6 @@ public class RegisterController {
     String postRegister(@ModelAttribute Login login, Model model){
         User user = new User(-1, login.getUsername(), login.getPassword());
         model.addAttribute("login", new Login());
-        System.out.println(User.getUsers());
         return "register";
     }
 }

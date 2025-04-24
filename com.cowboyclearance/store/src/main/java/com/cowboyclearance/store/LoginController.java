@@ -20,7 +20,6 @@ public class LoginController {
     String postLogin(@ModelAttribute Login login, Model model){
         User user = new User(-1, login.getUsername(), login.getPassword());
         model.addAttribute("login", new Login());
-        System.out.println(User.getUsers());
         model.addAttribute("wrongPassword", "1");
         login.setPassword("");
         model.addAttribute("login", login);
