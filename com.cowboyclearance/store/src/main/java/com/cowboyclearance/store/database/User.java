@@ -7,8 +7,6 @@ public class User {
     private Boolean admin;
     private String username;
     private String password;
-    private ArrayList<Inventory> cart;
-    private static ArrayList<User> users = new ArrayList<User>();
 
     public static User createUser(String username, String password){
         SQLite.query("");//Cainan use this to create a new user in the table
@@ -20,24 +18,18 @@ public class User {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.cart = new ArrayList<Inventory>();
-        users.add(this);
     }
     public User(){
         this.id = -1;
         this.admin = false;
         this.username = "";
         this.password = "";
-        this.cart = new ArrayList<Inventory>();
-        users.add(this);
     }
     public User(int id, String username, String password) {
         this.id = id;
         this.admin = false;
         this.username = username;
         this.password = password;
-        this.cart = new ArrayList<Inventory>();
-        users.add(this);
     }
 
     public int getId(){
@@ -56,15 +48,6 @@ public class User {
 
     public String getPassword() {
         return password;
-    }
-    public ArrayList<Inventory> getCart() {
-        return cart;
-    }
-    public void addToCart(Inventory inventory){
-        this.cart.add(inventory);
-    }
-    public static ArrayList<User> getUsers() {
-        return users;
     }
 
     @Override
