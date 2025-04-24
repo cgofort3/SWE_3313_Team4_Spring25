@@ -1,5 +1,7 @@
 package com.cowboyclearance.store.database;
 
+import com.cowboyclearance.store.Login;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -50,7 +52,7 @@ public class SQLite {
                 )
         {
             statement.setQueryTimeout(30);  // set timeout to 30 sec.
-            //statement.executeUpdate("insert into person values(2, 'yui')");
+            statement.executeUpdate("insert into person values(2, 'yui')");
             //ResultSet rs = statement.executeQuery("select * from person");
 
 
@@ -63,13 +65,31 @@ public class SQLite {
             e.printStackTrace(System.err);
         }
     }
-    public static void addUser(User user) {
-        update("INSERT INTO sqlite_master (name) VALUES ('Cardinal');");//Cainan add queries and methods and stuff here idk how it all works
+    public static void addUser(Login login) {
+        update("INSERT INTO Users (Username, Password) VALUES ("+login.getUsername()+", "+login.getPassword()+");");
     }
-    public static void updateUser(User user) {
+    public static void salesReport(User user) {
 
     }
-    public static void getAllUsers() {
+    public static void makeAdmin(User user) {
+        update("UPDATE Users SET IsAdmin = 1 WHERE Username = "+user.getUsername()+";");
+    }
+
+    /*public static void addInventory() {
+        //INSERT INTO Inventory(ItemID, ItemName, Price, Description, Image) VALUES();
+    }*/
+
+    public static void addSale(){
 
     }
+
+    public static void addSaleItem(){
+
+    }
+
+    public static void saleReport() {
+
+    }
+
+
 }
