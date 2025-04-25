@@ -17,13 +17,13 @@ public class SessionController {
 
     // Create a session and store an attribute
     @GetMapping("/create")
-    public String createSession(HttpSession session, @RequestParam(defaultValue = "shop") String redir) {
+    public RedirectView createSession(HttpSession session, @RequestParam(defaultValue = "shop") String redir) {
         // Set a session attribute (e.g., username)
         session.setAttribute("username", "JohnDoe");
         // Retrieve and return the session ID
         String sessionId = session.getId();
         System.out.println(redir);
-        return redir;
+        return new RedirectView("/" + redir);
     }
 
     // Retrieve session attribute

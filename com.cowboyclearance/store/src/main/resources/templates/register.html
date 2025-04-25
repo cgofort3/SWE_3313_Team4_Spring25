@@ -90,12 +90,12 @@
     <h2>Sign up</h2>
     <p>This town ain't big enough for the two of us...</p>
 
-    <form action="#" th:action="@{/signup}" th:object="${user}" method="post">
+    <form action="#" th:action="@{/signup}" th:object="${login}" method="post">
         <!-- Username -->
         <input type="text" th:field="*{username}" placeholder="Username" required>
 
         <!-- Email -->
-        <input type="email" th:field="*{email}" placeholder="Email" required>
+        <input type="email" th:field="*{username}" placeholder="Email" required>
 
         <!-- Password -->
         <input type="password" th:field="*{password}" placeholder="Password" required>
@@ -109,7 +109,7 @@
     </div>
 
     <div class="link">
-        <a href="login.html">Already a user?</a>
+        <a href="login">Already a user?</a>
     </div>
 </div>
 
