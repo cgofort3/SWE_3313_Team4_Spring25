@@ -2,116 +2,137 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>Cowboy Clearance</title>
     <style>
         body {
-          background-color: #e9edf5;
+          margin: 0;
           font-family: 'Segoe UI', sans-serif;
+          background-color: #ffffff;
+        }
+
+        header {
+          background-color: #b88668;
+          padding: 25px 20px;
           display: flex;
           align-items: center;
-          justify-content: center;
-          height: 100vh;
-          margin: 0;
-        }
-
-        .container {
-          background-color: #ffffff;
-          padding: 40px;
-          border-radius: 8px;
-          width: 300px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-          text-align: center;
-        }
-
-        h2 {
-          margin: 0 0 10px;
-          font-size: 24px;
-          color: #333;
-          text-decoration: underline;
-        }
-
-        p {
-          margin: 10px 0 20px;
-          color: #777;
-          font-size: 14px;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        input[type="password"] {
-          width: 100%;
-          padding: 10px;
-          margin-bottom: 15px;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          box-sizing: border-box;
-        }
-
-        button {
-          width: 100%;
-          padding: 10px;
-          background-color: #409ad6;
+          justify-content: space-between;
           color: white;
+        }
+
+        .site-title {
+          font-weight: bold;
+          font-size: 70px;
+          text-decoration: underline;
+          position: relative;
+        }
+
+        .admin-backstage {
+          font-size: 18px;
+          color: #b88668; /* Same color as the header background */
+          font-weight: normal;
+          text-decoration: none;
+          margin-top: 5px; /* Adjust for spacing */
+        }
+
+        .search-bar {
+          display: flex;
+          align-items: center;
+          margin-right: 500px;
+        }
+
+        .search-bar input {
+          width: 300px;
+          padding: 20px;
           border: none;
-          border-radius: 4px;
-          font-size: 14px;
+          border-radius: 4px 0 0 4px;
+        }
+
+        .search-bar button {
+          padding: 20px 20px;
+          background-color: #dddddd;
+          border: none;
+          border-radius: 0 4px 4px 0;
           cursor: pointer;
         }
 
-        button:hover {
-          background-color: #347cb3;
+        .nav-links {
+          font-size: 30px;
+          display: flex;
+          align-items: center;
+          margin-left: -20px;
         }
 
-        .terms {
-          margin-top: 20px;
-          font-size: 12px;
-          color: #999;
+        .account-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
 
-        .link {
-          margin-top: 10px;
-          font-size: 13px;
+        .light-blue-circle {
+          width: 70px;
+          height: 70px;
+          background-color: #d3d3d3;
+          border-radius: 50%;
+          margin-bottom: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 30px;
+          font-family: 'Segoe UI', sans-serif;
         }
 
-        .link a {
-          color: #409ad6;
+        .light-blue-circle::before {
+          content: ": )";
+          font-weight: bold;
+          transform: rotate(90deg);
+          display: inline-block;
+        }
+
+        .account-text {
+          color: white;
+          font-size: 14px;
+          font-weight: bold;
+          text-align: center;
+        }
+
+        .nav-links a, .nav-links span {
+          color: white;
           text-decoration: none;
+          margin-left: 5px;
         }
 
-        .link a:hover {
-          text-decoration: underline;
+        .nav-links span.shop-title {
+          margin-right: 0px;
         }
     </style>
 </head>
 <body>
-
-<div class="container">
-    <h2>Sign up</h2>
-    <p>This town ain't big enough for the two of us...</p>
-
-    <form action="#" th:action="@{/signup}" th:object="${user}" method="post">
-        <!-- Username -->
-        <input type="text" th:field="*{username}" placeholder="Username" required>
-
-        <!-- Email -->
-        <input type="email" th:field="*{email}" placeholder="Email" required>
-
-        <!-- Password -->
-        <input type="password" th:field="*{password}" placeholder="Password" required>
-
-        <!-- Submit Button -->
-        <button type="submit">Sign up</button>
-    </form>
-
-    <div class="terms">
-        <p>By signing up you agree to our <br> <strong>Terms & Conditions</strong></p>
+<header>
+    <div class="site-title">
+        Cowboy Clearance
+        <div class="admin-backstage">Admin Backstage</div>
     </div>
 
-    <div class="link">
-        <a href="login.html">Already a user?</a>
+    <div class="search-bar">
+        <!-- Search Form -->
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">🔍</button>
+        </form>
     </div>
-</div>
 
+    <div class="nav-links">
+        <a href="#">Shop</a>
+        <span class="separator"> - </span>
+        <a href="cart.html">Cart</a>
+        <span class="separator"> - </span>
+        <a href="session/invalidate">Logout</a>
+        <span class="seperator">  </span>
+        <div class="account-container">
+            <div class="light-blue-circle"></div>
+            <div class="account-text">Account</div>
+        </div>
+    </div>
+</header>
 </body>
 </html>
