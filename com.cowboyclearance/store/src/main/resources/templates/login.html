@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sign In</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
     <style>
         body {
           background-color: #e9edf5;
@@ -36,7 +37,7 @@
           font-size: 14px;
         }
 
-        input[type="email"],
+        input[type="text"],
         input[type="password"] {
           width: 100%;
           padding: 10px;
@@ -61,16 +62,18 @@
           background-color: #347cb3;
         }
 
+        .terms {
+          margin-top: 20px;
+          font-size: 12px;
+          color: #999;
+        }
+
         .link {
-          margin-top: 15px;
+          margin-top: 10px;
           font-size: 13px;
-          color: #666;
         }
 
         .link a {
-          display: inline-block;
-          margin-top: 8px;
-          margin-right: 8px;
           color: #409ad6;
           text-decoration: none;
         }
@@ -83,17 +86,26 @@
 <body>
 
 <div class="container">
-    <h2>Sign in</h2>
-    <p>Welcome back, partner!</p>
+    <h2>Sign up</h2>
+    <p>This town ain't big enough for the two of us...</p>
 
-    <input type="email" placeholder="Email">
-    <input type="password" placeholder="Password">
+    <form action="#" th:action="@{/register}" th:object="${user}" method="post">
+        <!-- Username -->
+        <input type="text" th:field="*{username}" placeholder="Username" required>
 
-    <button>Sign in</button>
+        <!-- Password -->
+        <input type="password" th:field="*{password}" placeholder="Password" required>
+
+        <!-- Submit Button -->
+        <button type="submit">Sign up</button>
+    </form>
+
+    <div class="terms">
+        <p>By signing up you agree to our <br> <strong>Terms & Conditions</strong></p>
+    </div>
 
     <div class="link">
-        <p>Forgot your password?</p>
-        <a href="register">New User</a>
+        <a href="login.html">Already a user?</a>
     </div>
 </div>
 
