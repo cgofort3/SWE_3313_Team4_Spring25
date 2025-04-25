@@ -1,39 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+    <style>
+        body {
+          background-color: #e9edf5;
+          font-family: 'Segoe UI', sans-serif;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+          margin: 0;
+        }
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        .container {
+          background-color: #ffffff;
+          padding: 40px;
+          border-radius: 8px;
+          width: 300px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          text-align: center;
+        }
 
+        h2 {
+          margin: 0 0 10px;
+          font-size: 24px;
+          color: #333;
+          text-decoration: underline;
+        }
+
+        p {
+          margin: 10px 0 20px;
+          color: #777;
+          font-size: 14px;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 15px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+
+        button {
+          width: 100%;
+          padding: 10px;
+          background-color: #409ad6;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          font-size: 14px;
+          cursor: pointer;
+        }
+
+        button:hover {
+          background-color: #347cb3;
+        }
+
+        .link {
+          margin-top: 15px;
+          font-size: 13px;
+          color: #666;
+        }
+
+        .link a {
+          display: inline-block;
+          margin-top: 8px;
+          margin-right: 8px;
+          color: #409ad6;
+          text-decoration: none;
+        }
+
+        .link a:hover {
+          text-decoration: underline;
+        }
+    </style>
+</head>
 <body>
 
+<div class="container">
+    <h2>Sign in</h2>
+    <p>Welcome back, partner!</p>
 
-<nav class="navbar fixed-top navbar-expand-lg bg-dark" style="color: #FFFFFF;">
-    <div class="container-fluid text-reset">
-        <a class="navbar-brand text-reset" href="#">Cowboy Clearance</a>
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
 
-    </div>
-</nav>
+    <button>Sign in</button>
 
-
-<div class="container" style="background-color: #E5E9F2; height: 100vh; align-content: center;">
-    <div class="container rounded-3" style="background-color: #FFFFFF; width: 50vh; max-width: 80%; padding-bottom: 1em; padding-top: 1em">
-        <form style="width: 50%; height: 50%; margin-left: auto; margin-right: auto;" action="#" th:action="@{/login}" th:object="${login}" method="post">
-            <div class="mb-3">
-                <label for="usernameInput" class="form-label">Username</label>
-                <input type="text" th:field="*{username}" class="form-control" id="usernameInput" placeholder="Username">
-            </div>
-            <div class="mb-3">
-                <label for="passwordInput" class="form-label">Password</label>
-                <input type="password" th:field="*{password}" class="form-control" id="passwordInput" placeholder="Password">
-                <label for="passwordInput" class="form-label" th:if="${wrongPassword}">Incorrect password.</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+    <div class="link">
+        <p>Forgot your password?</p>
+        <a href="#">New User</a>
+        <a href="#">Admin</a>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 </body>
 </html>

@@ -2,27 +2,107 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Register</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Sign Up</title>
+    <style>
+        body {
+          background-color: #e9edf5;
+          font-family: 'Segoe UI', sans-serif;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+          margin: 0;
+        }
 
+        .container {
+          background-color: #ffffff;
+          padding: 40px;
+          border-radius: 8px;
+          width: 300px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          text-align: center;
+        }
+
+        h2 {
+          margin: 0 0 10px;
+          font-size: 24px;
+          color: #333;
+          text-decoration: underline;
+        }
+
+        p {
+          margin: 10px 0 20px;
+          color: #777;
+          font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 15px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+
+        button {
+          width: 100%;
+          padding: 10px;
+          background-color: #409ad6;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          font-size: 14px;
+          cursor: pointer;
+        }
+
+        button:hover {
+          background-color: #347cb3;
+        }
+
+        .terms {
+          margin-top: 20px;
+          font-size: 12px;
+          color: #999;
+        }
+
+        .link {
+          margin-top: 10px;
+          font-size: 13px;
+        }
+
+        .link a {
+          color: #409ad6;
+          text-decoration: none;
+        }
+
+        .link a:hover {
+          text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-<!--th:object="${user}"-->
-<form action="#" th:action="@{/register}" th:object="${login}" method="post">
-    <div class="mb-3">
-        <label for="InputUsername1" class="form-label">Username</label>
-        <input type="text" th:field="*{username}" class="form-control" id="InputUsername1" aria-describedby="usernameHelp">
-        <div id="usernameHelp" class="form-text">We'll never share your username with anyone else.</div>
+
+<div class="container">
+    <h2>Sign up</h2>
+    <p>This town ain't big enough for the two of us...</p>
+
+    <input type="text" placeholder="Username">
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+
+    <button>Sign up</button>
+
+    <div class="terms">
+        <p>By signing up you agree to our <br> <strong>Terms & Conditions</strong></p>
     </div>
-    <div class="mb-3">
-        <label for="InputPassword" class="form-label">Password</label>
-        <input type="password" th:field="*{password}" class="form-control" id="InputPassword" placeholder="Password">
+
+    <div class="link">
+        <a href="#">Already a user?</a>
     </div>
-    <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Remember me</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</div>
+
 </body>
 </html>
