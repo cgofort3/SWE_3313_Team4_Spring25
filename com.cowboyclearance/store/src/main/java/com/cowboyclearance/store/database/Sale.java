@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Sale {
 
+    private int id;
     private User user;
     private int subtotal;
     private int total;
@@ -30,6 +31,10 @@ public class Sale {
     }
 
     private ArrayList<Inventory> items;
+
+    public int getID() {
+        return id;
+    }
 
     public User getUser() {
         return user;

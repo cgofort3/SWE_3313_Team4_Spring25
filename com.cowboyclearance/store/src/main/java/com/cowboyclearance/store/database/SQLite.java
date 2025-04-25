@@ -1,15 +1,20 @@
 package com.cowboyclearance.store.database;
 
-import com.cowboyclearance.store.database.Login;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
+import java.sql.*;
+import java.util.ArrayList;
 public class SQLite {
 
+    public static void initializeDatabase() {
+        String createTableSQL = """
+            CREATE TABLE IF NOT EXISTS users (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                username TEXT NOT NULL,
+                password TEXT NOT NULL
+            )
+            """;
+        update(createTableSQL);
+    }
 
     public static ResultSet query(String query) {
         ResultSet result = null;
@@ -45,6 +50,8 @@ public class SQLite {
             statement.executeUpdate(query);
             //ResultSet rs = statement.executeQuery("select * from person");
 
+
+
         }
         catch(SQLException e)
         {
@@ -53,8 +60,8 @@ public class SQLite {
             e.printStackTrace(System.err);
         }
     }
-    public static void addUser(Login login) {
-        update("INSERT INTO Users (Username, Password) VALUES ("+login.getUsername()+", "+login.getPassword()+");");
+    public static void addUser(User user) {
+        update("INSERT INTO Users (Username, Password) VALUES ("+user.getUsername()+", "+user.getPassword()+");");
     }
     public static void salesReport(User user) {
 
@@ -67,17 +74,28 @@ public class SQLite {
         //INSERT INTO Inventory(ItemID, ItemName, Price, Description, Image) VALUES();
     }*/
 
-    public static void addSale(){
-
+    public static void addSale(User user, Sale sale ){
+        update("INSERT INTO Sales (UserID, PurchaseDate, Subtotal, Tax, Shipping, FinalTotal, CreditCard, SecurityCode, ExpirationDate) " +
+                "VALUES ("+user.getId()+", sale.getPurchaseDate(), sale.getSubtotal(), sale.getTax(), sale.getShipping(), sale.getFinalTotal(), " +
+                "sale.getCreditCard(), sale.getSecurityCode(), sale.getExpirationDate()");
     }
 
-    public static void addSaleItem(){
-
+    public static void addSaleItem(int[] items, Sale sale){
+        String insert = "";
+        for(int i = 0; i < items.length ; i++) {
+            insert += "INSERT INTO SalesInventoryItem (SalesID, ItemID) VALUES ("+sale.getID()+", "+items[i]+");\n";
+        }
+        update(insert);
     }
 
     public static void saleReport() {
 
     }
+
+    public static int getShipping(String shipping) throws SQLException {
+        return (query("SELECT "+shipping+"FROM ShippingInfo")).getInt("shipping");
+    }
+
 
 
 }
