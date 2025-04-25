@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
 
@@ -42,9 +43,10 @@ public class SessionController {
 
     // Invalidate the session
     @GetMapping("/invalidate")
-    public String invalidateSession(HttpSession session) {
+    public RedirectView invalidateSession(HttpSession session) {
         // Invalidate the session
         session.invalidate();
-        return "login";
+
+        return new RedirectView("/login");
     }
 }

@@ -89,7 +89,7 @@
     <h2>Sign up</h2>
     <p>This town ain't big enough for the two of us...</p>
 
-    <form action="#" th:action="@{/register}" th:object="${user}" method="post">
+    <form action="#" th:action="@{/register}" th:object="${login}" method="post">
         <!-- Username -->
         <input type="text" th:field="*{username}" placeholder="Username" required>
 
