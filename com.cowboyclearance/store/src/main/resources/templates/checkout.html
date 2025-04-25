@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cowboy Clearance - Checkout</title>
+    <style>
+        body {
+          margin: 0;
+          font-family: 'Segoe UI', sans-serif;
+          background-color: #ffffff;
+        }
+
+        header {
+          background-color: #b88668;
+          padding: 25px 20px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          color: white;
+        }
+
+        .site-title {
+          font-weight: bold;
+          font-size: 70px;
+          text-decoration: underline;
+        }
+
+        .search-bar {
+          display: flex;
+          align-items: center;
+          margin-right: 500px;
+        }
+
+        .search-bar input {
+          width: 300px;
+          padding: 20px;
+          border: none;
+          border-radius: 4px 0 0 4px;
+        }
+
+        .search-bar button {
+          padding: 20px 20px;
+          background-color: #dddddd;
+          border: none;
+          border-radius: 0 4px 4px 0;
+          cursor: pointer;
+        }
+
+        .nav-links {
+          font-size: 30px;
+          display: flex;
+          align-items: center;
+        }
+
+        .account-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .light-blue-circle {
+          width: 70px;
+          height: 70px;
+          background-color: #d3d3d3;
+          border-radius: 50%;
+          margin-bottom: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 30px;
+          font-family: 'Segoe UI', sans-serif;
+        }
+
+        .light-blue-circle::before {
+          content: ": )";
+          font-weight: bold;
+          transform: rotate(90deg);
+          display: inline-block;
+        }
+
+        .account-text {
+          color: white;
+          font-size: 14px;
+          font-weight: bold;
+          text-align: center;
+        }
+
+        .nav-links a, .nav-links span {
+          color: white;
+          text-decoration: none;
+          margin-left: 5px;
+        }
+
+        .checkout-container {
+            padding: 20px;
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            height: 500px;
+        }
+
+        .checkout-info-box, .order-summary-box {
+            background-color: #b88668;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .checkout-info-box {
+            flex: 1;
+            width: auto;
+            min-height: 1525px;
+        }
+
+        .order-summary-box {
+            width: 900px;
+            height: 400px;
+        }
+
+        .checkout-info-box h2, .order-summary-box h2 {
+            font-size: 40px;
+            color: black;
+            text-decoration: underline;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .form-section {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-section h3 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-section label {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        .form-section input, .form-section select {
+            width: 560px;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .form-section select {
+            height: 50px;
+        }
+
+        .order-summary-section {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .order-summary-section span {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .checkout-btn-box {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .checkout-btn {
+          padding: 20px 100px;
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          border-radius: 6px;
+          font-size: 18px;
+          cursor: pointer;
+          text-align: center;
+          width: 100%;
+        }
+
+        .checkout-btn:hover {
+          background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="site-title">Cowboy Clearance</div>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Search">
+        <button>🔍</button>
+    </div>
+
+    <div class="nav-links">
+        <a href="shop.html">Shop</a>
+        <span class="separator"> - </span>
+        <a href="cart.html">Cart</a>
+        <span class="separator"> - </span>
+        <a href="login.html">Logout</a>
+        <span class="separator">  </span>
+        <div class="account-container">
+            <div class="light-blue-circle"></div>
+            <div class="account-text">Account</div>
+        </div>
+    </div>
+</header>
+
+<div class="checkout-container">
+    <!-- Left section (Order Summary) -->
+    <div class="order-summary-box">
+        <h2>Checkout</h2>
+        <div class="order-summary-section">
+            <span>Items Subtotal:</span>
+            <span>$99.99</span>
+        </div>
+        <div class="order-summary-section">
+            <span>Tax:</span>
+            <span>$7.00</span>
+        </div>
+        <div class="order-summary-section">
+            <span>Final Total:</span>
+            <span>$106.99</span>
+        </div>
+    </div>
+
+    <!-- Right section (Card, Billing, Shipping info) -->
+    <div class="checkout-info-box">
+        <h2>Checkout Information</h2>
+        <!-- Card Information -->
+        <div class="form-section">
+            <h3>Card Information</h3>
+            <label for="card-number">Card Number</label>
+            <input type="text" id="card-number" placeholder="Enter card number" required>
+
+            <label for="expiration-date">Expiration Date</label>
+            <input type="text" id="expiration-date" placeholder="MM/YY" required>
+
+            <label for="security-code">Security Code</label>
+            <input type="text" id="security-code" placeholder="CVV" required>
+
+            <label for="cardholder-name">Cardholder Name</label>
+            <input type="text" id="cardholder-name" placeholder="Enter name on card" required>
+        </div>
+
+        <!-- Billing Information -->
+        <div class="form-section">
+            <h3>Billing Information</h3>
+            <label for="billing-address">Address</label>
+            <input type="text" id="billing-address" placeholder="Enter billing address" required>
+
+            <label for="city">City</label>
+            <input type="text" id="city" placeholder="Enter city" required>
+
+            <label for="state">State</label>
+            <input type="text" id="state" placeholder="Enter state" required>
+
+            <label for="country">Country</label>
+            <input type="text" id="country" placeholder="Enter country" required>
+
+            <label for="zipcode">Zipcode</label>
+            <input type="text" id="zipcode" placeholder="Enter zipcode" required>
+
+            <label for="billing-name">Billing Name</label>
+            <input type="text" id="billing-name" placeholder="Enter billing name" required>
+        </div>
+
+        <!-- Shipping Speed -->
+        <div class="form-section">
+            <h3>Shipping Speed</h3>
+            <label for="shipping-speed">Choose shipping speed:</label>
+            <select id="shipping-speed" required>
+                <option value="overnight">Overnight</option>
+                <option value="3-day">3-day</option>
+                <option value="ground">Ground</option>
+            </select>
+        </div>
+
+        <!-- Checkout Button -->
+        <div class="checkout-btn-box">
+            <button class="checkout-btn">Buy</button>
+        </div>
+    </div>
+</div>
+
+<div id="confirmPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:9999;">
+    <div style="background-color:#4CAF50; padding:40px; border-radius:10px; text-align:center; min-width:300px;">
+        <h2 style="color:white; font-size:32px; margin-bottom:30px;">Confirm Order?</h2>
+        <div style="display:flex; justify-content:space-around; gap:40px;">
+            <button id="confirmYes" style="padding:15px 50px; font-size:18px; border:none; border-radius:6px; background-color:white; color:#4CAF50; cursor:pointer;">Yes</button>
+            <button id="confirmNo" style="padding:15px 50px; font-size:18px; border:none; border-radius:6px; background-color:white; color:#4CAF50; cursor:pointer;">No</button>
+        </div>
+    </div>
+</div>
+
+<!-- Hidden form to POST to backend -->
+<form id="checkoutForm" th:action="@{/submit-order}" method="post" style="display:none;">
+    <!-- You can use hidden inputs here if needed, e.g. total, user ID, etc. -->
+    <input type="hidden" name="total" value="106.99" />
+</form>
+
+<script>
+    const buyButton = document.querySelector('.checkout-btn');
+    const popup = document.getElementById('confirmPopup');
+    const yesBtn = document.getElementById('confirmYes');
+    const noBtn = document.getElementById('confirmNo');
+    const form = document.getElementById('checkoutForm');
+
+    buyButton.addEventListener('click', () => {
+        // Basic form validation
+        const cardNumber = document.getElementById('card-number').value.trim();
+        const expirationDate = document.getElementById('expiration-date').value.trim();
+        const securityCode = document.getElementById('security-code').value.trim();
+        const cardholderName = document.getElementById('cardholder-name').value.trim();
+
+        const billingAddress = document.getElementById('billing-address').value.trim();
+        const city = document.getElementById('city').value.trim();
+        const state = document.getElementById('state').value.trim();
+        const country = document.getElementById('country').value.trim();
+        const zipcode = document.getElementById('zipcode').value.trim();
+        const billingName = document.getElementById('billing-name').value.trim();
+
+        if (!cardNumber || !expirationDate || !securityCode || !cardholderName ||
+            !billingAddress || !city || !state || !country || !zipcode || !billingName) {
+            alert("All fields must be filled out.");
+            return;
+        }
+
+        // Basic number length validation (for card number, CVV, etc.)
+        if (!/^\d{16}$/.test(cardNumber)) {
+            alert("Card number must be 16 digits.");
+            return;
+        }
+        if (!/^\d{3}$/.test(securityCode)) {
+            alert("CVV must be 3 digits.");
+            return;
+        }
+        if (!/^\d{2}\/\d{2}$/.test(expirationDate)) {
+            alert("Expiration date must be in MM/YY format.");
+            return;
+        }
+
+        popup.style.display = 'flex';
+    });
+
+    yesBtn.addEventListener('click', () => {
+        form.submit(); // POSTs to the Spring Boot controller
+    });
+
+    noBtn.addEventListener('click', () => {
+        popup.style.display = 'none';
+    });
+</script>
+
+</body>
+</html>
