@@ -45,7 +45,6 @@ public class SQLite {
             statement.executeUpdate(query);
             //ResultSet rs = statement.executeQuery("select * from person");
 
-
         }
         catch(SQLException e)
         {

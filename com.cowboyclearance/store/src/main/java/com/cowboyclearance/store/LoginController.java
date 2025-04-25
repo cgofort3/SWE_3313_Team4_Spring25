@@ -24,7 +24,7 @@ public class LoginController {
         model.addAttribute("wrongPassword", "1");
         login.setPassword("");
         model.addAttribute("login", login);
-        return "login";
+        return "session/create?redir=shop";
     }
 }
 
