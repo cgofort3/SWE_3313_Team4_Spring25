@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <style>
         body {
@@ -89,18 +90,26 @@
     <h2>Sign up</h2>
     <p>This town ain't big enough for the two of us...</p>
 
-    <input type="text" placeholder="Username">
-    <input type="email" placeholder="Email">
-    <input type="password" placeholder="Password">
+    <form action="#" th:action="@{/signup}" th:object="${user}" method="post">
+        <!-- Username -->
+        <input type="text" th:field="*{username}" placeholder="Username" required>
 
-    <button>Sign up</button>
+        <!-- Email -->
+        <input type="email" th:field="*{email}" placeholder="Email" required>
+
+        <!-- Password -->
+        <input type="password" th:field="*{password}" placeholder="Password" required>
+
+        <!-- Submit Button -->
+        <button type="submit">Sign up</button>
+    </form>
 
     <div class="terms">
         <p>By signing up you agree to our <br> <strong>Terms & Conditions</strong></p>
     </div>
 
     <div class="link">
-        <a href="login">Already a user?</a>
+        <a href="login.html">Already a user?</a>
     </div>
 </div>
 
