@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In</title>
     <style>
         body {
@@ -86,14 +87,22 @@
     <h2>Sign in</h2>
     <p>Welcome back, partner!</p>
 
-    <input type="email" placeholder="Email">
-    <input type="password" placeholder="Password">
+    <!-- Form for signing in -->
+    <form action="#" th:action="@{/signin}" th:object="${loginForm}" method="post">
+        <!-- Email -->
+        <input type="email" th:field="*{email}" placeholder="Email" required>
 
-    <button>Sign in</button>
+        <!-- Password -->
+        <input type="password" th:field="*{password}" placeholder="Password" required>
+
+        <!-- Submit Button -->
+        <button type="submit">Sign in</button>
+    </form>
 
     <div class="link">
         <p>Forgot your password?</p>
-        <a href="register">New User</a>
+        <a href="register.html">New User</a>
+        <a href="#">Admin</a>
     </div>
 </div>
 
