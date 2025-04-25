@@ -2,16 +2,12 @@ package com.cowboyclearance.store.database;
 
 import java.util.ArrayList;
 
-public class User {
+public class User extends Login{
     private int id;
     private Boolean admin;
     private String username;
     private String password;
 
-    public static User createUser(String username, String password){
-        SQLite.query("");//Cainan use this to create a new user in the table
-        return new User();
-    }
 
     public User(Boolean admin, int id, String username, String password) {
         this.admin = admin;

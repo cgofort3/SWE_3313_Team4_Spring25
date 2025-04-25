@@ -13,7 +13,13 @@ public class Inventory {
         SQLite.query("");
         return new Inventory();
     }
-    public Inventory(){}
+    public Inventory(){
+        this.id = 0;
+        this.name = "";
+        this.price = 0;
+        this.description = "";
+        this.image = "";
+    }
     public Inventory(int id, String name, int price, String description, String image) {
         this.name = name;
         this.id = id;

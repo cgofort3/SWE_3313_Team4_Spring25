@@ -1,6 +1,6 @@
 package com.cowboyclearance.store.database;
 
-import com.cowboyclearance.store.Login;
+import com.cowboyclearance.store.database.Login;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,16 +10,6 @@ import java.sql.Statement;
 
 public class SQLite {
 
-    public static void initializeDatabase() {
-        String createTableSQL = """
-            CREATE TABLE IF NOT EXISTS users (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                username TEXT NOT NULL,
-                password TEXT NOT NULL
-            )
-            """;
-        update(createTableSQL);
-    }
 
     public static ResultSet query(String query) {
         ResultSet result = null;
@@ -52,9 +42,8 @@ public class SQLite {
                 )
         {
             statement.setQueryTimeout(30);  // set timeout to 30 sec.
-            statement.executeUpdate("insert into person values(2, 'yui')");
+            statement.executeUpdate(query);
             //ResultSet rs = statement.executeQuery("select * from person");
-
 
 
         }

@@ -1,6 +1,7 @@
 package com.cowboyclearance.store;
 
 
+import com.cowboyclearance.store.database.Login;
 import com.cowboyclearance.store.database.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
