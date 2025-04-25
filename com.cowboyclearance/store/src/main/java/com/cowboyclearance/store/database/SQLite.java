@@ -1,6 +1,6 @@
 package com.cowboyclearance.store.database;
 
-import com.cowboyclearance.store.Login;
+
 import java.sql.*;
 import java.util.ArrayList;
 public class SQLite {
@@ -60,8 +60,8 @@ public class SQLite {
             e.printStackTrace(System.err);
         }
     }
-    public static void addUser(Login login) {
-        update("INSERT INTO Users (Username, Password) VALUES ("+login.getUsername()+", "+login.getPassword()+");");
+    public static void addUser(User user) {
+        update("INSERT INTO Users (Username, Password) VALUES ("+user.getUsername()+", "+user.getPassword()+");");
     }
     public static void salesReport(User user) {
 
@@ -74,16 +74,16 @@ public class SQLite {
         //INSERT INTO Inventory(ItemID, ItemName, Price, Description, Image) VALUES();
     }*/
 
-    public static void addSale(User user, Sales sale ){
+    public static void addSale(User user, Sale sale ){
         update("INSERT INTO Sales (UserID, PurchaseDate, Subtotal, Tax, Shipping, FinalTotal, CreditCard, SecurityCode, ExpirationDate) " +
                 "VALUES ("+user.getId()+", sale.getPurchaseDate(), sale.getSubtotal(), sale.getTax(), sale.getShipping(), sale.getFinalTotal(), " +
                 "sale.getCreditCard(), sale.getSecurityCode(), sale.getExpirationDate()");
     }
 
-    public static void addSaleItem(int[] items, Sales sale){
+    public static void addSaleItem(int[] items, Sale sale){
         String insert = "";
         for(int i = 0; i < items.length ; i++) {
-            insert += "INSERT INTO SalesInventoryItem (SalesID, ItemID) VALUES ("+sales.getID()+", "+items[i]+");\n";
+            insert += "INSERT INTO SalesInventoryItem (SalesID, ItemID) VALUES ("+sale.getID()+", "+items[i]+");\n";
         }
         update(insert);
     }
@@ -95,6 +95,7 @@ public class SQLite {
     public static int getShipping(String shipping) throws SQLException {
         return (query("SELECT "+shipping+"FROM ShippingInfo")).getInt("shipping");
     }
+
 
 
 }
