@@ -89,9 +89,9 @@
     <h2>Sign up</h2>
     <p>This town ain't big enough for the two of us...</p>
 
-    <form action="#" th:action="@{/register}" th:object="${user}" method="post">
+    <form action="#" th:action="@{/register}" th:object="${login}" method="post">
         <!-- Email (required) -->
-        <input type="email" th:field="*{email}" name="email" placeholder="Email" required>
+        <input type="email" th:field="*{username}" name="email" placeholder="Email" required>
 
         <!-- Password -->
         <input type="password" th:field="*{password}" name="password" placeholder="Password" required>
