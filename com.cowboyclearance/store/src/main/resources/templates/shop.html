@@ -213,7 +213,7 @@
     <div th:each="product : ${inventory}" class="product">
         <div class="product-info">
             <h3 th:text="${product.getName()}"></h3>
-            <p th:text="'$' + ${product.getPrice() / 100}"></p>
+            <p th:text="'$' + ${product.getPrice() / 100.00}"></p>
         </div>
         <div class="add-to-cart">
             <button>Add to Cart</button>

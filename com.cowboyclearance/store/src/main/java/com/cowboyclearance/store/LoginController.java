@@ -16,12 +16,12 @@ import org.springframework.web.servlet.view.RedirectView;
 public class LoginController {
 
     @GetMapping("/logout")
-    RedirectView logout(HttpSession session) {
+    RedirectView getLogout(HttpSession session) {
         session.invalidate();
         return new RedirectView("/");
     }
     @GetMapping("/login")
-    String getRegister(Model model){
+    String getLogin(Model model){
         model.addAttribute("login", new Login());
         return "login";
     }
@@ -40,6 +40,18 @@ public class LoginController {
         */
         session.setAttribute("login", login);
         return new RedirectView("/");
+    }
+    @GetMapping("/register")
+    String getRegister(Model model){
+        model.addAttribute("login", new Login());
+        return "register";
+    }
+
+    @PostMapping("/register")
+    RedirectView postRegister(@ModelAttribute Login login, Model model){
+        User user = new User(-1, login.getEmail(), login.getPassword());
+        SQLite.addUser(user);
+        return new RedirectView("/login");
     }
 }
 

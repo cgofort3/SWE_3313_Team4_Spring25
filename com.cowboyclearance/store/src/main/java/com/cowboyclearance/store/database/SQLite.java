@@ -58,6 +58,8 @@ public class SQLite {
         //THIS IS A PLACEHOLDER METHOD PLEASE IMPLEMENT
         //needs to get users by email address
         //Also needs to return null if no user is found
+        //THIS IS FOR YOU CAINAN
+        //PLEASE DON'T BE PISSED
         ResultSet result = query("");
 
         /*
