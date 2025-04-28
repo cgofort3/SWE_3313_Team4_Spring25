@@ -2,19 +2,8 @@ package com.cowboyclearance.store.database;
 
 
 import java.sql.*;
-import java.util.ArrayList;
-public class SQLite {
 
-    public static void initializeDatabase() {
-        String createTableSQL = """
-            CREATE TABLE IF NOT EXISTS users (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                username TEXT NOT NULL,
-                password TEXT NOT NULL
-            )
-            """;
-        update(createTableSQL);
-    }
+public class SQLite {
 
     public static ResultSet query(String query) {
         ResultSet result = null;
@@ -61,13 +50,27 @@ public class SQLite {
         }
     }
     public static void addUser(User user) {
-        update("INSERT INTO Users (Username, Password) VALUES ("+user.getUsername()+", "+user.getPassword()+");");
+        update("INSERT INTO Users (Username, Password) VALUES ("+user.getEmail()+", "+user.getPassword()+");");
     }
+
+    public static User getUser(String email) {
+        //THIS IS A PLACEHOLDER METHOD PLEASE IMPLEMENT
+        //needs to get users by email address
+        //Also needs to return null if no user is found
+        ResultSet result = query("");
+
+        /*
+        result.getSomethingIdk()
+         */
+        User user = null;
+        return user;
+    }
+
     public static void salesReport(User user) {
 
     }
     public static void makeAdmin(User user) {
-        update("UPDATE Users SET IsAdmin = 1 WHERE Username = "+user.getUsername()+";");
+        update("UPDATE Users SET IsAdmin = 1 WHERE Username = "+user.getEmail()+";");
     }
 
     /*public static void addInventory() {
@@ -96,6 +99,16 @@ public class SQLite {
         return (query("SELECT "+shipping+"FROM ShippingInfo")).getInt("shipping");
     }
 
+    public static Inventory[] getInventory(){
+        return SQLite.getInventory();
+    }
+
+
+    /*
+    Some more methods needed:
+        + getUser(): get user by username
+        + getInventory(): get an array of all inventory items
+     */
 
 
 }

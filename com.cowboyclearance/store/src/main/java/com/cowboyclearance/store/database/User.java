@@ -1,7 +1,5 @@
 package com.cowboyclearance.store.database;
 
-import java.util.ArrayList;
-
 public class User extends Login{
     private int id;
     private Boolean admin;
@@ -31,14 +29,14 @@ public class User extends Login{
     public int getId(){
         return id;
     }
-    public void setUsername(String username){
-        this.username = username;
+    public void setEmail(String email){
+        this.username = email;
     }
     public void setPassword(String password){
         this.password = password;
     }
 
-    public String getUsername() {
+    public String getEmail() {
         return username;
     }
 

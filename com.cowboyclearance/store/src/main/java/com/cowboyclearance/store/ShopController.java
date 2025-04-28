@@ -1,6 +1,7 @@
 package com.cowboyclearance.store;
 
 import com.cowboyclearance.store.database.Inventory;
+import com.cowboyclearance.store.database.SQLite;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,8 +11,9 @@ import java.util.Arrays;
 @Controller
 public class ShopController {
 
-    @GetMapping("/shop")
+    @GetMapping({"/", "/shop"})
     String getInventory(Model model){
+        Inventory[] inventory = SQLite.getInventory();
         model.addAttribute("inventory", Arrays.asList(
                 new Inventory(0, "Cowboy hat", 2000, "A very high quality hat.", "https://i.ebayimg.com/images/g/8D0AAOSwOa1h5GXl/s-l1200.jpg"),
                 new Inventory(1, "Extra cool cowboy hat", 4000, "An incredibly high quality hat.", "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcR77e2KsBFOvaDZEqu6vVhS-i8Z1lIphYzD50ivytkIEiHp20ylEZ4S89IkNtyjLW5RuJkHF6spW9fXJSztLOsJtpFQMw4Yu0eNIZ0fLV6ozQfmc8eqbMXGEA")

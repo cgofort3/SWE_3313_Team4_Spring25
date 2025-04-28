@@ -90,7 +90,7 @@
     <!-- Form for signing in -->
     <form action="#" th:action="@{/login}" th:object="${login}" method="post">
         <!-- Username -->
-        <input type="text" th:field="*{Email}" placeholder="Email" required>
+        <input type="text" th:field="*{email}" placeholder="Email" required>
 
         <!-- Password -->
         <input type="password" th:field="*{password}" placeholder="Password" required>

@@ -1,23 +1,23 @@
 package com.cowboyclearance.store.database;
 
 public class Login {
-    private String username;
+    private String email;
     private String password;
     public Login(){
-        username = "";
+        email = "";
         password = "";
     }
-    public Login(String username, String password) {
-        this.username = username;
+    public Login(String email, String password) {
+        this.email = email;
         this.password = password;
     }
-    public String getUsername() {
+    public String getEmail() {
 
-        return username;
+        return email;
     }
-    public void setUsername(String username) {
+    public void setEmail(String email) {
 
-        this.username = username;
+        this.email = email;
     }
     public String getPassword() {
 

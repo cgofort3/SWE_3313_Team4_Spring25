@@ -22,6 +22,7 @@ public class SessionController {
         session.setAttribute("username", "JohnDoe");
         // Retrieve and return the session ID
         String sessionId = session.getId();
+
         System.out.println(redir);
         return new RedirectView("/" + redir);
     }
