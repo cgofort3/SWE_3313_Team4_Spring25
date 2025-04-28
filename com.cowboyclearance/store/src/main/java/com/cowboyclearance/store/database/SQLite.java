@@ -2,6 +2,7 @@ package com.cowboyclearance.store.database;
 
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class SQLite {
 
@@ -99,8 +100,8 @@ public class SQLite {
         return (query("SELECT "+shipping+"FROM ShippingInfo")).getInt("shipping");
     }
 
-    public static Inventory[] getInventory(){
-        return SQLite.getInventory();
+    public static ArrayList<Inventory> getInventory(){
+        return null;
     }
 
 

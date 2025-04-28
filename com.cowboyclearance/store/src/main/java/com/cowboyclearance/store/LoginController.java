@@ -28,6 +28,7 @@ public class LoginController {
 
     @PostMapping("/login")
     RedirectView postLogin(@ModelAttribute Login login, HttpSession session, Model model){
+        /*
         User user = SQLite.getUser(login.getEmail());
         if(user == null){
             return new RedirectView("/login");
@@ -36,7 +37,9 @@ public class LoginController {
             session.setAttribute("user", user.getEmail());
             return new RedirectView("/");
         }
-        return new RedirectView("/login");
+        */
+        session.setAttribute("login", login);
+        return new RedirectView("/");
     }
 }
 
