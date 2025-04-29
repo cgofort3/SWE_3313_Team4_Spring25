@@ -229,23 +229,36 @@
     <!-- Left section (Order Summary) -->
     <div class="order-summary-box">
         <h2>Checkout</h2>
+
+        <!-- Items Subtotal -->
         <div class="order-summary-section">
             <span>Items Subtotal:</span>
-            <span>$99.99</span>
+            <span id="subtotal"> $0.00 </span>
         </div>
+
+        <!-- Tax -->
         <div class="order-summary-section">
-            <span>Tax:</span>
-            <span>$7.00</span>
+            <span>Tax (6%):</span>
+            <span id="tax"> $0.00 </span>
         </div>
+
+        <!-- Shipping Speed Price -->
+        <div class="order-summary-section">
+            <span>Shipping Speed:</span>
+            <span id="shipping-price"> $0.00 </span>
+        </div>
+
+        <!-- Final Total -->
         <div class="order-summary-section">
             <span>Final Total:</span>
-            <span>$106.99</span>
+            <span id="final-total"> $0.00 </span>
         </div>
     </div>
 
     <!-- Right section (Card, Billing, Shipping info) -->
     <div class="checkout-info-box">
         <h2>Checkout Information</h2>
+
         <!-- Card Information -->
         <div class="form-section">
             <h3>Card Information</h3>
@@ -288,10 +301,10 @@
         <div class="form-section">
             <h3>Shipping Speed</h3>
             <label for="shipping-speed">Choose shipping speed:</label>
-            <select id="shipping-speed" required>
-                <option value="overnight">Overnight</option>
-                <option value="3-day">3-day</option>
-                <option value="ground">Ground</option>
+            <select id="shipping-speed" name="shippingSpeed" required onchange="updateShippingCost()">
+                <option value="overnight" data-price="29">Overnight - $29</option>
+                <option value="3-day" data-price="19">3-day - $19</option>
+                <option value="ground" data-price="0">Ground - Free</option>
             </select>
         </div>
 
@@ -302,72 +315,40 @@
     </div>
 </div>
 
-<div id="confirmPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:9999;">
-    <div style="background-color:#4CAF50; padding:40px; border-radius:10px; text-align:center; min-width:300px;">
-        <h2 style="color:white; font-size:32px; margin-bottom:30px;">Confirm Order?</h2>
-        <div style="display:flex; justify-content:space-around; gap:40px;">
-            <button id="confirmYes" style="padding:15px 50px; font-size:18px; border:none; border-radius:6px; background-color:white; color:#4CAF50; cursor:pointer;">Yes</button>
-            <button id="confirmNo" style="padding:15px 50px; font-size:18px; border:none; border-radius:6px; background-color:white; color:#4CAF50; cursor:pointer;">No</button>
-        </div>
-    </div>
-</div>
-
-<!-- Hidden form to POST to backend -->
-<form id="checkoutForm" th:action="@{/submit-order}" method="post" style="display:none;">
-    <!-- You can use hidden inputs here if needed, e.g. total, user ID, etc. -->
-    <input type="hidden" name="total" value="106.99" />
-</form>
-
 <script>
     const buyButton = document.querySelector('.checkout-btn');
-    const popup = document.getElementById('confirmPopup');
-    const yesBtn = document.getElementById('confirmYes');
-    const noBtn = document.getElementById('confirmNo');
-    const form = document.getElementById('checkoutForm');
+    const shippingSelect = document.getElementById('shipping-speed');
 
+    // Function to update shipping cost and final total
+    function updateShippingCost() {
+        const shippingPrice = parseFloat(shippingSelect.options[shippingSelect.selectedIndex].getAttribute('data-price'));
+
+        // Get items from local storage (your cart items) and calculate subtotal
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        let subtotal = cartItems.reduce((total, item) => total + item.price, 0);
+
+        // Calculate tax (6%)
+        const tax = subtotal * 0.06;
+
+        // Calculate final total (subtotal + tax + shipping)
+        const finalTotal = subtotal + tax + shippingPrice;
+
+        // Update the UI with the calculated values
+        document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+        document.getElementById('tax').textContent = `$${tax.toFixed(2)}`;
+        document.getElementById('shipping-price').textContent = `$${shippingPrice.toFixed(2)}`;
+        document.getElementById('final-total').textContent = `$${finalTotal.toFixed(2)}`;
+    }
+
+    // Event listener to trigger the update when the page loads
+    window.onload = updateShippingCost;
+
+    // Handle buy button click (to submit the order and redirect to receipt page)
     buyButton.addEventListener('click', () => {
-        // Basic form validation
-        const cardNumber = document.getElementById('card-number').value.trim();
-        const expirationDate = document.getElementById('expiration-date').value.trim();
-        const securityCode = document.getElementById('security-code').value.trim();
-        const cardholderName = document.getElementById('cardholder-name').value.trim();
+        // You can perform any final validation here and submit the order if everything is correct
 
-        const billingAddress = document.getElementById('billing-address').value.trim();
-        const city = document.getElementById('city').value.trim();
-        const state = document.getElementById('state').value.trim();
-        const country = document.getElementById('country').value.trim();
-        const zipcode = document.getElementById('zipcode').value.trim();
-        const billingName = document.getElementById('billing-name').value.trim();
-
-        if (!cardNumber || !expirationDate || !securityCode || !cardholderName ||
-            !billingAddress || !city || !state || !country || !zipcode || !billingName) {
-            alert("All fields must be filled out.");
-            return;
-        }
-
-        // Basic number length validation (for card number, CVV, etc.)
-        if (!/^\d{16}$/.test(cardNumber)) {
-            alert("Card number must be 16 digits.");
-            return;
-        }
-        if (!/^\d{3}$/.test(securityCode)) {
-            alert("CVV must be 3 digits.");
-            return;
-        }
-        if (!/^\d{2}\/\d{2}$/.test(expirationDate)) {
-            alert("Expiration date must be in MM/YY format.");
-            return;
-        }
-
-        popup.style.display = 'flex';
-    });
-
-    yesBtn.addEventListener('click', () => {
-        form.submit(); // POSTs to the Spring Boot controller
-    });
-
-    noBtn.addEventListener('click', () => {
-        popup.style.display = 'none';
+        // Redirect to the receipt page
+        window.location.href = "receipt.html";  // Adjust the URL to match your actual receipt page
     });
 </script>
 
