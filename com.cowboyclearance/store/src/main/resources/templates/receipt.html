@@ -175,16 +175,22 @@
         <h2>Checkout Summary</h2>
 
         <!-- Iterate through items in the order -->
-        <div th:each="item : ${cartItems}">
+        <div th:each="item : ${sale.getItems()}">
             <div class="checkout-item">
                 <h3 th:text="${item.getName()}"></h3>
-                <span th:text="'Price: $' + ${item.getPrice()}"></span>
+                <span th:text="'Price: ' + ${item.getFormattedPrice()}"></span>
+            </div>
+        </div>
+
+        <div>
+            <div class="checkout-item">
+                <span th:text="'Tax: ' + ${sale.getFormattedTax()}"></span>
             </div>
         </div>
 
         <div class="checkout-item">
             <h3>Total</h3>
-            <span th:text="'$' + ${order.totalPrice}"></span>
+            <span th:text="${sale.getFormattedTotal()}"></span>
         </div>
     </div>
 
@@ -194,18 +200,18 @@
 
         <div class="receipt-section">
             <h3>Shipping Speed</h3>
-            <span th:text="${order.shippingSpeed}"></span>
+            <span th:text="${sale.getShipping()}"></span>
         </div>
 
         <div class="receipt-section">
             <h3>Card Info</h3>
             <!-- Show last 4 digits of card number -->
-            <span th:text="'Card ending in **** ' + ${order.cardLastFour}"></span>
+            <span th:text="'Card ending in **** ' + ${cardNumber.substring(cardNumber.length() - 4)}"></span>
         </div>
 
         <div class="receipt-section">
             <h3>Email</h3>
-            <span th:text="${user.email}"></span>
+            <span th:text="${sale.getUser().getEmail()}"></span>
         </div>
     </div>
 </div>

@@ -1,5 +1,6 @@
 package com.cowboyclearance.store.database;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class Sale {
@@ -8,12 +9,32 @@ public class Sale {
         this.id = id;
     }
 
+    public int getId() {
+        return id;
+    }
+
     private int id;
     private User user;
     private int subtotal;
     private int total;
     private String date;
     private String shipping;
+
+    public int getTax() {
+        return tax;
+    }
+
+    public String getFormattedTax()
+    {
+        return NumberFormat.getCurrencyInstance().format((float)getTax() / 100);
+
+    }
+
+    public void setTax(int tax) {
+        this.tax = tax;
+    }
+
+    private int tax;
 
 
     public Sale(){
@@ -32,15 +53,23 @@ public class Sale {
         this.date = date;
         this.shipping = shipping;
     }
-    public ArrayList<Integer> getItems() {
+    public ArrayList<Inventory> getItems() {
         return items;
     }
 
-    public void setItems(ArrayList<Integer> items) {
+    public ArrayList<Integer> getItemIds() {
+        ArrayList<Integer> itemIds = new ArrayList<>();
+        for (Inventory item : items) {
+            itemIds.add(item.getId());
+        }
+        return itemIds;
+    }
+
+    public void setItems(ArrayList<Inventory> items) {
         this.items = items;
     }
 
-    private ArrayList<Integer> items;
+    private ArrayList<Inventory> items;
 
     public int getID() {
         return id;
@@ -68,6 +97,18 @@ public class Sale {
 
     public void setTotal(int total) {
         this.total = total;
+    }
+
+    public String getFormattedSubtotal()
+    {
+        return NumberFormat.getCurrencyInstance().format((double)getSubtotal() / 100);
+
+    }
+
+    public String getFormattedTotal()
+    {
+        return NumberFormat.getCurrencyInstance().format((double)getTotal() / 100);
+
     }
 
     public String getDate() {

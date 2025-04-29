@@ -155,7 +155,7 @@ public class SQLite {
 
             // Batch insert items
             try (PreparedStatement psItem = conn.prepareStatement(itemSql)) {
-                for (int itemId : sale.getItems()) {
+                for (int itemId : sale.getItemIds()) {
                     psItem.setInt(1, sale.getID());
                     psItem.setInt(2, itemId);
                     psItem.addBatch();
