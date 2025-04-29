@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.ArrayList;
+
 @Controller
 public class LoginController {
 
@@ -39,6 +41,8 @@ public class LoginController {
         }
         */
         session.setAttribute("login", login);
+
+        session.setAttribute("cart", new ArrayList<Integer>());
         return new RedirectView("/");
     }
     @GetMapping("/register")

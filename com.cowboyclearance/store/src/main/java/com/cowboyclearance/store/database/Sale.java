@@ -12,7 +12,12 @@ public class Sale {
     private String shipping;
 
     public Sale(){
-
+        this.id = 0;
+        this.user = null;
+        this.subtotal = 0;
+        this.total = 0;
+        this.date = "";
+        this.shipping = "";
     }
 
     public Sale(User user, int subtotal, int total, String date, String shipping) {

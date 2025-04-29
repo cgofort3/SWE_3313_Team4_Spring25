@@ -6,35 +6,59 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @Controller
 public class ShopController {
 
-    @GetMapping("/")
-    RedirectView getHome(HttpSession session, Model model){
+    @GetMapping("shop")
+    String getHome(HttpSession session, Model model){
         if(session.getAttribute("login") != null){
             System.out.println(session.getAttribute("login").toString());
-            return new RedirectView("/shop");
+            ArrayList<Inventory> inventory = SQLite.getInventory();
+            model.addAttribute("inventory", Arrays.asList(
+                    new Inventory(0, "Cowboy hat", 2010, "A very high quality hat.", "https://i.ebayimg.com/images/g/8D0AAOSwOa1h5GXl/s-l1200.jpg"),
+                    new Inventory(1, "Extra cool cowboy hat", 4059, "An incredibly high quality hat.", "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcR77e2KsBFOvaDZEqu6vVhS-i8Z1lIphYzD50ivytkIEiHp20ylEZ4S89IkNtyjLW5RuJkHF6spW9fXJSztLOsJtpFQMw4Yu0eNIZ0fLV6ozQfmc8eqbMXGEA")
+            ));
+            return "shop";
         }
         else{
             System.out.println("Not logged in!");
-            return new RedirectView("/login");
+            return "redirect:/login";
         }
     }
+    @GetMapping("/")
+    String index(HttpSession session, Model model){
+        return "redirect:/shop";
+    }
 
-    @GetMapping("/shop")
-    String getShop(Model model){
-        ArrayList<Inventory> inventory = SQLite.getInventory();
-        model.addAttribute("inventory", Arrays.asList(
-                new Inventory(0, "Cowboy hat", 2010, "A very high quality hat.", "https://i.ebayimg.com/images/g/8D0AAOSwOa1h5GXl/s-l1200.jpg"),
-                new Inventory(1, "Extra cool cowboy hat", 4059, "An incredibly high quality hat.", "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcR77e2KsBFOvaDZEqu6vVhS-i8Z1lIphYzD50ivytkIEiHp20ylEZ4S89IkNtyjLW5RuJkHF6spW9fXJSztLOsJtpFQMw4Yu0eNIZ0fLV6ozQfmc8eqbMXGEA")
-        ));
-        return "shop";
+    @PostMapping("/shop/add")
+    String postShopAdd(@RequestParam("productId") int id,HttpSession session, Model model){
+        List<Integer> cart = (List<Integer>) session.getAttribute("cart");
+        if(cart == null)return "redirect:/";
+        if (!cart.contains(id)) {
+            cart.add(id);
+        }
+        System.out.println("cart size: " + cart.size());
+        return "redirect:/shop";
+    }
+
+    @PostMapping("/shop/remove")
+    String postShopRemove(@RequestParam("productId") int id,HttpSession session, Model model){
+        List<Integer> cart = (List<Integer>) session.getAttribute("cart");
+        if(cart == null)return "redirect:/";
+        if (cart.contains(id)) {
+            cart.remove(id);
+        }
+        System.out.println("cart size: " + cart.size());
+        return "redirect:/shop";
     }
 
 

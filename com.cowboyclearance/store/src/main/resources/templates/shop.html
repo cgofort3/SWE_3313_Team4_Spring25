@@ -213,10 +213,13 @@
     <div th:each="product : ${inventory}" class="product">
         <div class="product-info">
             <h3 th:text="${product.getName()}"></h3>
-            <p th:text="'$' + ${product.getPrice() / 100.00}"></p>
+            <p th:text="${product.getFormattedPrice()}"></p>
         </div>
         <div class="add-to-cart">
-            <button>Add to Cart</button>
+            <form th:action="@{/shop/add}" method="post">
+                <input type="hidden" th:name="productId" th:value="${product.getId()}"/>
+                <button type="submit">Add to Cart</button>
+            </form>
         </div>
         <div class="image-container">
             <div class="image-wrapper">

@@ -1,6 +1,8 @@
 package com.cowboyclearance.store.database;
 
 import java.util.ArrayList;
+import java.text.NumberFormat;
+import java.util.Currency;
 
 public class Inventory {
     private int id;
@@ -26,6 +28,12 @@ public class Inventory {
         this.price = price;
         this.description = description;
         this.image = image;
+    }
+
+    public String getFormattedPrice()
+    {
+        return NumberFormat.getCurrencyInstance().format((double)getPrice() / 100);
+
     }
     public int getId() {
         return id;
