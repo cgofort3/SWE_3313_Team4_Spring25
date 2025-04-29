@@ -20,8 +20,8 @@ public class ShopController {
 
     @GetMapping("shop")
     String getHome(HttpSession session, Model model){
-        if(session.getAttribute("login") != null){
-            System.out.println(session.getAttribute("login").toString());
+        if(session.getAttribute("user") != null){
+            System.out.println(session.getAttribute("user").toString());
             List<Inventory> inventory = SQLite.getInventory();
             /*
             model.addAttribute("inventory", Arrays.asList(
@@ -34,7 +34,6 @@ public class ShopController {
             return "shop";
         }
         else{
-            System.out.println("Not logged in!");
             return "redirect:/login";
         }
     }

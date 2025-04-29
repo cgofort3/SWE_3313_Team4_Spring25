@@ -36,6 +36,7 @@ public class LoginController {
             return new RedirectView("/login");
         }
         if(user.getPassword().equals(login.getPassword())){
+            System.out.println("Logged in!");
             session.setAttribute("user", user.getEmail());
             return new RedirectView("/");
         }

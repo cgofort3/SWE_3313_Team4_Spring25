@@ -72,7 +72,6 @@ public class SQLite {
      * New users are non-admins by default.
      */
     public static void addUser(User user) {
-        System.out.println("Adding user: " + user.getEmail());
         String sql = "INSERT INTO Users (Username, Password, IsAdmin) VALUES (?, ?, 0)";
         try (Connection conn = DriverManager.getConnection(URL);
              PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
