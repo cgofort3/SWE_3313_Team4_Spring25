@@ -68,7 +68,7 @@ public class CartController {
         model.addAttribute("subtotal", String.format("%.2f", subtotal));
         model.addAttribute("tax", String.format("%.2f", tax));
 
-
+        session.setAttribute("cartItems", cartInventory);
         session.setAttribute("subtotal", String.format("%.2f", subtotal));
         session.setAttribute("tax", String.format("%.2f", tax));
 
@@ -84,11 +84,19 @@ public class CartController {
         Sale sale = new Sale();
         sale.setItems((ArrayList<Integer>)session.getAttribute("cart"));
         sale.setUser(SQLite.getUser((String)session.getAttribute("user")));
-        sale.setSubtotal((Math.round((Float) session.getAttribute("subtotal"))));
-        sale.setTotal((sale.getSubtotal() * (Integer)session.getAttribute("tax")));
+        sale.setSubtotal((Math.round(Float.parseFloat((String)session.getAttribute("subtotal")))));
+        sale.setTotal((int)(sale.getSubtotal() * Float.parseFloat((String)session.getAttribute("tax"))));
         SQLite.addSale(sale);
+        session.removeAttribute("subtotal");
+        session.removeAttribute("tax");
 
-        return "redirect:/";
+
+
+        session.setAttribute("cart", new ArrayList<Integer>());
+        model.addAttribute("cartItems", (List<Inventory>)session.getAttribute("cartItems"));
+
+        model.addAttribute("sale", sale);
+        return "receipt";
 
     }
 }
