@@ -32,7 +32,26 @@ public class CartController {
     }
 
     @GetMapping("/checkout")
-    public String getCheckout(Model model){
+    public String getCheckout(HttpSession session, Model model){
+
+        List<Integer> cartId = (List<Integer>) session.getAttribute("cart");
+        System.out.println("cartId: " + cartId);
+        List<Inventory> allInventory = SQLite.getInventory();
+        List<Inventory> cartInventory = new ArrayList<>();
+        for (Inventory inventory : allInventory) {
+            if (cartId.contains(inventory.getId())) {
+                cartInventory.add(inventory);
+            }
+        }
+
+        model.addAttribute("cart", cartInventory);
+
+
+
+
+
+
+
         return "checkout";
     }
 }

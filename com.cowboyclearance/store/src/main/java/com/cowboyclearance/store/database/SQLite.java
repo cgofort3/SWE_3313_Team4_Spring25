@@ -117,10 +117,10 @@ public class SQLite {
     /**
      * Promote a user to administrator.
      */
-    public static void makeAdmin(User user) {
+    public static void makeAdmin(String email) {
         String sql = "UPDATE Users SET IsAdmin = 1 WHERE Username = ?";
         try (Connection conn = DriverManager.getConnection(URL)) {
-            executeUpdate(conn, sql, user.getEmail());
+            executeUpdate(conn, sql, email);
         } catch (SQLException e) {
             e.printStackTrace(System.err);
         }

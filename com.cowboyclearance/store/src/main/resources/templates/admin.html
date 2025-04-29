@@ -181,8 +181,10 @@
 <!-- Create New Admin Account Section -->
 <div class="box">
     <h3>Create New Admin Account</h3>
-    <input type="text" class="input-field" placeholder="Enter username" required>
-    <button class="button">Create Admin Account</button>
+    <form th:action="@{/admin}" method="post">
+        <input type="text" class="input-field" placeholder="Enter username" th:name="user" required>
+    </form>
+    <button type="submit" class="button">Create Admin Account</button>
 </div>
 
 <!-- Download Sales Report Section -->

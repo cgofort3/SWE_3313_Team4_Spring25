@@ -31,6 +31,7 @@ public class ShopController {
 
              */
             model.addAttribute("inventory", inventory);
+            model.addAttribute("isAdmin", SQLite.getUser((String)session.getAttribute("user")).getAdmin());
             return "shop";
         }
         else{

@@ -39,10 +39,7 @@ public class LoginController {
             System.out.println("Logged in!");
             session.setAttribute("user", user.getEmail());
             session.setAttribute("cart", new ArrayList<Integer>());
-            return new RedirectView("/");
         }
-
-
         return new RedirectView("/");
     }
     @GetMapping("/register")
