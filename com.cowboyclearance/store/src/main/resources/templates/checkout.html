@@ -254,9 +254,9 @@
                     <h3>Shipping Speed</h3>
                     <label for="shipping-speed">Choose shipping speed:</label>
                     <select id="shipping-speed" th:name="shippingSpeed" required onchange="updateTotal()">
-                        <option value="0">Ground - Free</option>
-                        <option value="19">3-day - $19</option>
-                        <option value="29">Overnight - $29</option>
+                        <option value="Ground 0">Ground - Free</option>
+                        <option value="3Day 19">3-day - $19</option>
+                        <option value="Overnight 29">Overnight - $29</option>
                     </select>
                 </div>
 
@@ -273,7 +273,7 @@
             const subtotal = parseFloat(subtotalElement.replace('$', ''));
             const tax = parseFloat(taxElement.replace('$', ''));
             const shippingSelect = document.getElementById('shipping-speed');
-            const shippingCost = parseFloat(shippingSelect.value);
+            const shippingCost = parseFloat(shippingSelect.value.split(" ")[1]);
         
             document.getElementById('shipping-price').textContent = '$' + shippingCost.toFixed(2);
             const finalTotal = subtotal + tax + shippingCost;

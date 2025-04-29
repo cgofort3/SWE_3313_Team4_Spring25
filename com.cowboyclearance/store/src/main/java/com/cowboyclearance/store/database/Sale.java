@@ -29,6 +29,17 @@ public class Sale {
         return NumberFormat.getCurrencyInstance().format((float)getTax() / 100);
 
     }
+    public String getFormattedShipping()
+    {
+        return NumberFormat.getCurrencyInstance().format((float)SQLite.getShippingInfo(getShipping()) / 100);
+
+    }
+
+    public int getShippingAmount()
+    {
+        return SQLite.getShippingInfo(getShipping());
+
+    }
 
     public void setTax(int tax) {
         this.tax = tax;

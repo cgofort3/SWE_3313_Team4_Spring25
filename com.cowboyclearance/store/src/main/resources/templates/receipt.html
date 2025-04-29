@@ -166,7 +166,13 @@
 
 <header>
     <div class="site-title">Cowboy Clearance</div>
-    <!-- Other header content here -->
+    <div class="nav-links">
+        <a href="shop">Shop</a>
+        <span class="separator"> - </span>
+        <a href="cart">Cart</a>
+        <span class="separator"> - </span>
+        <a href="logout">Logout</a>
+    </div>
 </header>
 
 <div class="receipt-container">
@@ -184,7 +190,19 @@
 
         <div>
             <div class="checkout-item">
-                <span th:text="'Tax: ' + ${sale.getFormattedTax()}"></span>
+                <b><span th:text="'Subtotal: ' + ${sale.getFormattedSubtotal()}"></span></b>
+            </div>
+        </div>
+
+        <div>
+            <div class="checkout-item">
+                <b><span th:text="'Tax: ' + ${sale.getFormattedTax()}"></span></b>
+            </div>
+        </div>
+
+        <div>
+            <div class="checkout-item">
+                <b><span th:text="'Shipping: ' + ${sale.getFormattedShipping()}"></span></b>
             </div>
         </div>
 

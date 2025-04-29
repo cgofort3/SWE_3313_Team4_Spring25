@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Controller
 public class CartController {
@@ -132,7 +131,7 @@ public class CartController {
         }
         subtotal /= 100.0;
 
-        double tax = subtotal * 0.06f;
+        double tax = subtotal * ((double)SQLite.getShippingInfo("tax") / 100);
 
         model.addAttribute("cart", cartInventory);
         model.addAttribute("subtotal", String.format("%.2f", subtotal));
@@ -155,9 +154,10 @@ public class CartController {
             return "redirect:/cart";
         }
         Sale sale = (Sale)session.getAttribute("sale");
-        sale.setTotal((int)(sale.getSubtotal() + (float)sale.getTax()));
-        System.out.println("sale = " + sale.getTotal());
-        sale.setShipping(shipping);
+
+        sale.setShipping(shipping.split(" ")[0]);
+        System.out.println(shipping.split(" ")[0]);
+        sale.setTotal((sale.getSubtotal() + sale.getTax() + sale.getShippingAmount()));
         SQLite.addSale(sale);
 
 

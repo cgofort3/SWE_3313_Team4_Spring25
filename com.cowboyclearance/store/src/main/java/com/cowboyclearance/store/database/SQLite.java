@@ -1,10 +1,6 @@
 package com.cowboyclearance.store.database;
 
-import com.cowboyclearance.store.database.Inventory;
-import com.cowboyclearance.store.database.Sale;
-import com.cowboyclearance.store.database.User;
-
-import java.math.BigDecimal;
+import java.io.StringWriter;
 import java.sql.*;
 import java.util.*;
 
@@ -14,6 +10,130 @@ import java.util.*;
  */
 public class SQLite {
     private static final String URL = "jdbc:sqlite:cowboy_clearance.sqlite";
+
+
+
+
+    /**
+     * Given a list of Inventory items, return for each item a comma-separated
+     * string of purchaser emails for that item. The returned list aligns by index
+     * with the input list.
+     *
+     * @param items list of Inventory objects
+     * @return list of comma-separated emails for each inventory item
+     * @throws SQLException on DB error
+     */
+    public static List<String> getSaleUsers(List<Inventory> items) {
+        List<String> emailsList = new ArrayList<>(items.size());
+        String sql =
+                "SELECT GROUP_CONCAT(u.Email) AS Emails " +
+                        "FROM SalesInventoryItem si " +
+                        "JOIN Sales s ON si.SalesID = s.SalesID " +
+                        "JOIN Users u ON s.UserID = u.UserID " +
+                        "WHERE si.ItemID = ?";
+
+        try (Connection conn = DriverManager.getConnection(URL);
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            for (Inventory inv : items) {
+                ps.setInt(1, inv.getId());
+                try (ResultSet rs = ps.executeQuery()) {
+                    if (rs.next()) {
+                        String csv = rs.getString("Emails");
+                        emailsList.add(csv != null ? csv : "");
+                    } else {
+                        emailsList.add("");
+                    }
+                }
+                catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return emailsList;
+    }
+
+
+    /**
+     * Retrieve all inventory items that have been sold at least once.
+     * Uses a thread-safe list wrapper and try-with-resources for JDBC.
+     */
+    public static List<Inventory> getSoldInventory() {
+        // Thread-safe list to hold results
+        List<Inventory> soldItems = Collections.synchronizedList(new ArrayList<>());  // :contentReference[oaicite:0]{index=0}
+
+        // Select each inventory item that appears in the sales-item junction table
+        String sql =
+                "SELECT DISTINCT i.ItemID, i.ItemName, i.Price, i.Description, i.Image " +
+                        "FROM Inventory i " +
+                        "INNER JOIN SalesInventoryItem si ON i.ItemID = si.ItemID";               // standard SQL JOIN
+
+        try (
+                Connection conn = DriverManager.getConnection(URL);                       // JDBC URL connection
+                PreparedStatement ps = conn.prepareStatement(sql);                        // parameter-free PreparedStatement
+                ResultSet rs = ps.executeQuery()                                          // executeQuery returns ResultSet
+        ) {
+            while (rs.next()) {
+                Inventory inv = new Inventory();
+                inv.setId(rs.getInt("ItemID"));                                       // read integer column
+                inv.setName(rs.getString("ItemName"));                                // read string column
+                inv.setPrice(rs.getInt("Price"));
+                inv.setDescription(rs.getString("Description"));
+                inv.setImage(rs.getString("Image"));
+                soldItems.add(inv);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(System.err);
+        }
+        return soldItems;
+    }
+
+    public static String exportSoldItemsCsvString() throws SQLException {
+        String sql =
+                "SELECT si.ItemID, i.ItemName, u.Email AS UserEmail " +
+                        "FROM SalesInventoryItem si " +
+                        "INNER JOIN Sales s ON si.SalesID = s.SalesID " +
+                        "INNER JOIN Users u ON s.UserID = u.UserID " +
+                        "INNER JOIN Inventory i ON si.ItemID = i.ItemID";              // standard SQL JOIN :contentReference[oaicite:0]{index=0}
+
+        StringWriter sw = new StringWriter();                             // in-memory writer
+
+        try (Connection conn = DriverManager.getConnection(URL);
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            ResultSetMetaData md = rs.getMetaData();                       // get column info
+            int cols = md.getColumnCount();
+
+            // Write header row
+            for (int i = 1; i <= cols; i++) {
+                sw.write(md.getColumnName(i));
+                if (i < cols) sw.write(',');
+            }
+            sw.write("\n");
+
+            // Write data rows
+            while (rs.next()) {
+                for (int i = 1; i <= cols; i++) {
+                    String field = rs.getString(i);
+                    if (field == null) {
+                        field = "";
+                    }
+                    // escape if contains comma, quote, or newline
+                    if (field.contains(",") || field.contains("\"") || field.contains("\n")) {
+                        field = "\"" + field.replace("\"", "\"\"") + "\"";
+                    }
+                    sw.write(field);
+                    if (i < cols) sw.write(',');
+                }
+                sw.write("\n");
+            }
+        }
+
+        return sw.toString();
+    }
 
     /**
      * Execute a SELECT query with parameters; return an open ResultSet.
@@ -70,7 +190,7 @@ public class SQLite {
      * New users are non-admins by default.
      */
     public static void addUser(User user) {
-        String sql = "INSERT INTO Users (Username, Password, IsAdmin) VALUES (?, ?, 0)";
+        String sql = "INSERT INTO Users (Email, Password, IsAdmin) VALUES (?, ?, 0)";
         try (Connection conn = DriverManager.getConnection(URL);
              PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
@@ -94,14 +214,14 @@ public class SQLite {
      * Fetch a user by email; return null if not found.
      */
     public static User getUser(String email) {
-        String sql = "SELECT UserID, Username, Password, IsAdmin FROM Users WHERE Username = ?";
+        String sql = "SELECT UserID, Email, Password, IsAdmin FROM Users WHERE Email = ?";
         try (Connection conn = DriverManager.getConnection(URL);
              ResultSet rs = executeQuery(conn, sql, email)) {
 
             if (rs.next()) {
                 User user = new User();
                 user.setId(rs.getInt("UserID"));
-                user.setEmail(rs.getString("Username"));
+                user.setEmail(rs.getString("Email"));
                 user.setPassword(rs.getString("Password"));
                 user.setAdmin(rs.getBoolean("IsAdmin"));
                 return user;
@@ -116,7 +236,7 @@ public class SQLite {
      * Promote a user to administrator.
      */
     public static void makeAdmin(String email) {
-        String sql = "UPDATE Users SET IsAdmin = 1 WHERE Username = ?";
+        String sql = "UPDATE Users SET IsAdmin = 1 WHERE Email = ?";
         try (Connection conn = DriverManager.getConnection(URL)) {
             executeUpdate(conn, sql, email);
         } catch (SQLException e) {
@@ -174,7 +294,7 @@ public class SQLite {
      */
     public static List<Map<String, Object>> getSalesReportData() {
         List<Map<String, Object>> reportData = new ArrayList<>();
-        String sql = "SELECT s.SalesID, u.Username AS UserEmail, s.PurchaseDate, " +
+        String sql = "SELECT s.SalesID, u.Email AS UserEmail, s.PurchaseDate, " +
                 "s.Subtotal, s.Tax, s.Shipping, s.FinalTotal, " +
                 "GROUP_CONCAT(i.ItemID) AS Items " +
                 "FROM Sales s " +
@@ -260,12 +380,16 @@ public class SQLite {
     /**
      * Lookup a shipping rate column by name. Column values are integers representing cents.
      */
-    public static int getShippingRate(String column) throws SQLException {
-        String sql = "SELECT " + column + " FROM ShippingInfo";
+    public static int getShippingInfo(String column) {
+        String sql = "SELECT [" + column + "] FROM ShippingInfo";
         try (Connection conn = DriverManager.getConnection(URL);
              Statement st = conn.createStatement();
              ResultSet rs = st.executeQuery(sql)) {
             return rs.getInt(column);
+        }
+        catch (SQLException e) {
+            e.printStackTrace(System.err);
+            return 0;
         }
     }
 }

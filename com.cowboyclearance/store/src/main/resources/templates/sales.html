@@ -57,7 +57,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            }
+        }
 
         .light-blue-circle {
             width: 70px;
@@ -182,22 +182,22 @@
             background-color: #dddddd;
             border-radius: 4px;
         }
-        </style>
-        </head>
-        <body>
+    </style>
+</head>
+<body>
 
-        <header>
-        <div class="site-title">Cowboy Clearance</div>
+<header>
+    <div class="site-title">Cowboy Clearance</div>
 
-        <div class="search-bar">
+    <div class="search-bar">
         <form class="d-flex" role="search" onsubmit="return false;">
             <input id="searchInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="button" onclick="filterProducts()">🔍</button>
         </form>
-        </div>
+    </div>
 
 
-        <div class="nav-links">
+    <div class="nav-links">
         <a href="/shop">Shop</a>
         <span class="separator"> - </span>
         <a href="/cart">Cart</a>
@@ -208,52 +208,52 @@
             <div th:if="${isAdmin}">
                 <form action="/admin" method="get" style="margin: 0;">
                     <button type="submit" class="light-blue-circle admin"></button>
-                    <div class="account-text">Admin</div>
                 </form>
             </div>
-            <!-- <div th:unless="${isAdmin}" class="light-blue-circle"></div> -->
+            <div th:unless="${isAdmin}" class="light-blue-circle"></div>
+            <div class="account-text">Admin</div>
         </div>
 
-        </div>
-        </header>
+    </div>
+</header>
 
-        <div class="product-list">
-        <div th:each="product : ${inventory}" class="product">
+
+
+<div class="product-list">
+
+    <div th:each="product, iStat : ${inventory}" class="product">
         <div class="product-info">
             <h3 th:text="${product.getName()}"></h3>
             <p th:text="${product.getFormattedPrice()}"></p>
         </div>
         <div class="add-to-cart">
-            <form th:action="@{/shop/add}" method="post">
-                <input type="hidden" th:name="productId" th:value="${product.getId()}"/>
-                <button type="submit">Add to Cart</button>
-            </form>
+                <p type="submit" th:text="'Sold to: ' + ${users[iStat.index]}"></p>
         </div>
         <div class="image-container">
             <div class="image-wrapper">
                 <img th:src="${product.getImage()}" alt="Product Image" class="product-image"/>
             </div>
         </div>
-        </div>
-        </div>
+    </div>
+</div>
 
-        <script>
-        function filterProducts() {
+<script>
+    function filterProducts() {
         const searchTerm = document.getElementById('searchInput').value.toLowerCase();
         const products = document.querySelectorAll('.product');
 
         products.forEach(product => {
-        const productName = product.querySelector('h3').textContent.toLowerCase();
-        if (productName.includes(searchTerm)) {
-            product.style.display = '';
-        } else {
-            product.style.display = 'none';
-        }
+            const productName = product.querySelector('h3').textContent.toLowerCase();
+            if (productName.includes(searchTerm)) {
+                product.style.display = '';
+            } else {
+                product.style.display = 'none';
+            }
         });
-        }
+    }
 
-        // Add event listener for real-time filtering as user types
-        document.getElementById('searchInput').addEventListener('input', filterProducts);
-        </script>
-        </body>
-        </html>
+    // Add event listener for real-time filtering as user types
+    document.getElementById('searchInput').addEventListener('input', filterProducts);
+</script>
+</body>
+</html>
