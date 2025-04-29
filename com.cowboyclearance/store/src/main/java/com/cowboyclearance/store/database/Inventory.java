@@ -9,12 +9,29 @@ public class Inventory {
     private String name;
     private int price;
     private String description;
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     private String image;
 
-    public static Inventory createInventory(){
-        SQLite.query("");
-        return new Inventory();
-    }
     public Inventory(){
         this.id = 0;
         this.name = "";

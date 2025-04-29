@@ -4,12 +4,17 @@ import java.util.ArrayList;
 
 public class Sale {
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     private int id;
     private User user;
     private int subtotal;
     private int total;
     private String date;
     private String shipping;
+
 
     public Sale(){
         this.id = 0;

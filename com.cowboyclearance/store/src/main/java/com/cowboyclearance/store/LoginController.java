@@ -30,7 +30,7 @@ public class LoginController {
 
     @PostMapping("/login")
     RedirectView postLogin(@ModelAttribute Login login, HttpSession session, Model model){
-        /*
+
         User user = SQLite.getUser(login.getEmail());
         if(user == null){
             return new RedirectView("/login");
@@ -39,8 +39,8 @@ public class LoginController {
             session.setAttribute("user", user.getEmail());
             return new RedirectView("/");
         }
-        */
-        session.setAttribute("login", login);
+
+        session.setAttribute("login", user.getEmail());
 
         session.setAttribute("cart", new ArrayList<Integer>());
         return new RedirectView("/");
@@ -53,6 +53,7 @@ public class LoginController {
 
     @PostMapping("/register")
     RedirectView postRegister(@ModelAttribute Login login, Model model){
+        System.out.println(login.getEmail());
         User user = new User(-1, login.getEmail(), login.getPassword());
         SQLite.addUser(user);
         return new RedirectView("/login");
