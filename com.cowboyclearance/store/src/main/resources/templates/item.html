@@ -1,10 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <title>Cowboy Clearance - Receipt</title>
+    <style>
+        body {
+          margin: 0;
+          font-family: 'Segoe UI', sans-serif;
+          background-color: #ffffff;
+        }
+
+        header {
+          background-color: #b88668;
+          padding: 25px 20px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          color: white;
+        }
+
+        .site-title {
+          font-weight: bold;
+          font-size: 70px;
+          text-decoration: underline;
+        }
+
+        .search-bar {
+          display: flex;
+          align-items: center;
+          margin-right: 500px;
+        }
+
+        .search-bar input {
+          width: 300px;
+          padding: 20px;
+          border: none;
+          border-radius: 4px 0 0 4px;
+        }
+
+        .search-bar button {
+          padding: 20px 20px;
+          background-color: #dddddd;
+          border: none;
+          border-radius: 0 4px 4px 0;
+          cursor: pointer;
+        }
+
+        .nav-links {
+          font-size: 30px;
+          display: flex;
+          align-items: center;
+        }
+
+        .account-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .light-blue-circle {
+          width: 70px;
+          height: 70px;
+          background-color: #d3d3d3;
+          border-radius: 50%;
+          margin-bottom: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 30px;
+        }
+
+        .light-blue-circle::before {
+          content: ": )";
+          font-weight: bold;
+          transform: rotate(90deg);
+          display: inline-block;
+        }
+
+        .account-text {
+          color: white;
+          font-size: 14px;
+          font-weight: bold;
+          text-align: center;
+        }
+
+        .nav-links a, .nav-links span {
+          color: white;
+          text-decoration: none;
+          margin-left: 5px;
+        }
+
+        .receipt-container {
+          display: flex;
+          justify-content: center;
+          gap: 40px;
+          padding: 40px;
+        }
+
+        .checkout-summary-box {
+          background-color: #b88668;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+          width: 600px;
+        }
+
+        .checkout-summary-box h2 {
+          font-size: 40px;
+          color: black;
+          text-decoration: underline;
+          text-align: left;
+          margin-bottom: 20px;
+        }
+
+        .checkout-item {
+          margin-bottom: 20px;
+        }
+
+        .checkout-item h3 {
+          font-size: 28px;
+          color: #333;
+          margin-bottom: 10px;
+        }
+
+        .checkout-item span {
+          font-size: 18px;
+          color: #333;
+          display: block;
+        }
+
+        .receipt-info-box {
+          background-color: #b88668;
+          padding: 25px 30px;
+          border-radius: 8px;
+          box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+          width: 350px;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .receipt-info-box h2 {
+          font-size: 32px;
+          color: #333;
+          text-decoration: underline;
+          margin-bottom: 20px;
+        }
+
+        .receipt-section {
+          margin-bottom: 20px;
+        }
+
+        .receipt-section h3 {
+          font-size: 22px;
+          color: #333;
+          margin-bottom: 8px;
+        }
+
+        .receipt-section span {
+          font-size: 16px;
+          color: #555;
+        }
+    </style>
 </head>
 <body>
 
+<header>
+    <div class="site-title">Cowboy Clearance</div>
+    <!-- Other header content here -->
+</header>
+
+<div class="receipt-container">
+    <!-- Checkout Summary Box (left, unchanged) -->
+    <div class="checkout-summary-box">
+        <h2>Checkout Summary</h2>
+
+        <!-- Iterate through items in the order -->
+        <div th:each="item : ${order.items}">
+            <div class="checkout-item">
+                <h3 th:text="${item.productName}"></h3>
+                <span th:text="'Price: $' + ${item.price}"></span>
+            </div>
+        </div>
+
+        <div class="checkout-item">
+            <h3>Total</h3>
+            <span th:text="'$' + ${order.totalPrice}"></span>
+        </div>
+    </div>
+
+    <!-- Receipt Info Box (right, new unique size) -->
+    <div class="receipt-info-box">
+        <h2>Receipt</h2>
+
+        <div class="receipt-section">
+            <h3>Shipping Speed</h3>
+            <span th:text="${order.shippingSpeed}"></span>
+        </div>
+
+        <div class="receipt-section">
+            <h3>Card Info</h3>
+            <!-- Show last 4 digits of card number -->
+            <span th:text="'Card ending in **** ' + ${order.cardLastFour}"></span>
+        </div>
+
+        <div class="receipt-section">
+            <h3>Email</h3>
+            <span th:text="${user.email}"></span>
+        </div>
+    </div>
+</div>
+
 </body>
-</html>
