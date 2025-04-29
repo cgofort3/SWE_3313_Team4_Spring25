@@ -103,7 +103,7 @@ public class SQLite {
 
             if (rs.next()) {
                 User user = new User();
-                user.setId(rs.getInt("Id"));
+                user.setId(rs.getInt("UserID"));
                 user.setEmail(rs.getString("Username"));
                 user.setPassword(rs.getString("Password"));
                 user.setAdmin(rs.getBoolean("IsAdmin"));
