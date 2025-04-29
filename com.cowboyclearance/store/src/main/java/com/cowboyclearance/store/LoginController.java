@@ -38,12 +38,11 @@ public class LoginController {
         if(user.getPassword().equals(login.getPassword())){
             System.out.println("Logged in!");
             session.setAttribute("user", user.getEmail());
+            session.setAttribute("cart", new ArrayList<Integer>());
             return new RedirectView("/");
         }
 
-        session.setAttribute("login", user.getEmail());
 
-        session.setAttribute("cart", new ArrayList<Integer>());
         return new RedirectView("/");
     }
     @GetMapping("/register")

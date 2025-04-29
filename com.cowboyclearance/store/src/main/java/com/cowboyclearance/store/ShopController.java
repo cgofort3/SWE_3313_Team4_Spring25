@@ -49,6 +49,7 @@ public class ShopController {
         if (!cart.contains(id)) {
             cart.add(id);
         }
+        session.setAttribute("cart", cart);
         System.out.println("cart size: " + cart.size());
         return "redirect:/shop";
     }
@@ -58,10 +59,11 @@ public class ShopController {
         List<Integer> cart = (List<Integer>) session.getAttribute("cart");
         if(cart == null)return "redirect:/";
         if (cart.contains(id)) {
-            cart.remove(id);
+            cart.remove(Integer.valueOf(id));
         }
+        session.setAttribute("cart", cart);
         System.out.println("cart size: " + cart.size());
-        return "redirect:/shop";
+        return "redirect:/cart";
     }
 
 
