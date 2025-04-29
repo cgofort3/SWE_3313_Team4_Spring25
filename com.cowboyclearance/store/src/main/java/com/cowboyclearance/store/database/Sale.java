@@ -32,15 +32,15 @@ public class Sale {
         this.date = date;
         this.shipping = shipping;
     }
-    public ArrayList<Inventory> getItems() {
+    public ArrayList<Integer> getItems() {
         return items;
     }
 
-    public void setItems(ArrayList<Inventory> items) {
+    public void setItems(ArrayList<Integer> items) {
         this.items = items;
     }
 
-    private ArrayList<Inventory> items;
+    private ArrayList<Integer> items;
 
     public int getID() {
         return id;

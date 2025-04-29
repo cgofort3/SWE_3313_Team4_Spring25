@@ -158,11 +158,11 @@
     <header>
         <div class="site-title">Cowboy Clearance</div>
         <div class="nav-links">
-            <a href="/shop">Shop</a>
+            <a href="shop">Shop</a>
             <span class="separator"> - </span>
-            <a href="/cart">Cart</a>
+            <a href="cart">Cart</a>
             <span class="separator"> - </span>
-            <a href="/logout">Logout</a>
+            <a href="logout">Logout</a>
         </div>
     </header>
 
@@ -209,51 +209,51 @@
         <div class="checkout-info-box">
             <h2>Checkout Information</h2>
 
-            <form th:action="@{/checkout}" th:object="${checkoutForm}" method="post">
+            <form th:action="@{/checkout}" method="post">
 
                 <!-- Card Information -->
                 <div class="form-section">
                     <h3>Card Information</h3>
                     <label for="card-number">Card Number</label>
-                    <input type="text" id="card-number" th:field="*{cardNumber}" placeholder="Enter card number" required>
+                    <input type="text" id="card-number" th:name="cardNmber" placeholder="Enter card number" required>
 
                     <label for="expiration-date">Expiration Date</label>
-                    <input type="text" id="expiration-date" th:field="*{expirationDate}" placeholder="MM/YY" required>
+                    <input type="text" id="expiration-date" placeholder="MM/YY" required>
 
                     <label for="security-code">Security Code</label>
-                    <input type="text" id="security-code" th:field="*{securityCode}" placeholder="CVV" required>
+                    <input type="text" id="security-code" placeholder="CVV" required>
 
                     <label for="cardholder-name">Cardholder Name</label>
-                    <input type="text" id="cardholder-name" th:field="*{cardholderName}" placeholder="Enter name on card" required>
+                    <input type="text" id="cardholder-name" placeholder="Enter name on card" required>
                 </div>
 
                 <!-- Billing Information -->
                 <div class="form-section">
                     <h3>Billing Information</h3>
                     <label for="billing-address">Address</label>
-                    <input type="text" id="billing-address" th:field="*{billingAddress}" placeholder="Enter billing address" required>
+                    <input type="text" id="billing-address" placeholder="Enter billing address" required>
 
                     <label for="city">City</label>
-                    <input type="text" id="city" th:field="*{city}" placeholder="Enter city" required>
+                    <input type="text" id="city" placeholder="Enter city" required>
 
                     <label for="state">State</label>
-                    <input type="text" id="state" th:field="*{state}" placeholder="Enter state" required>
+                    <input type="text" id="state" placeholder="Enter state" required>
 
                     <label for="country">Country</label>
-                    <input type="text" id="country" th:field="*{country}" placeholder="Enter country" required>
+                    <input type="text" id="country" placeholder="Enter country" required>
 
                     <label for="zipcode">Zipcode</label>
-                    <input type="text" id="zipcode" th:field="*{zipcode}" placeholder="Enter zipcode" required>
+                    <input type="text" id="zipcode" placeholder="Enter zipcode" required>
 
                     <label for="billing-name">Billing Name</label>
-                    <input type="text" id="billing-name" th:field="*{billingName}" placeholder="Enter billing name" required>
+                    <input type="text" id="billing-name" placeholder="Enter billing name" required>
                 </div>
 
                 <!-- Shipping Speed Selection -->
                 <div class="form-section">
                     <h3>Shipping Speed</h3>
                     <label for="shipping-speed">Choose shipping speed:</label>
-                    <select id="shipping-speed" th:field="*{shippingSpeed}" required onchange="updateTotal()">
+                    <select id="shipping-speed" th:name="shippingSpeed" required onchange="updateTotal()">
                         <option value="0">Ground - Free</option>
                         <option value="19">3-day - $19</option>
                         <option value="29">Overnight - $29</option>

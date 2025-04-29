@@ -6,9 +6,7 @@ import com.cowboyclearance.store.database.User;
 
 import java.math.BigDecimal;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * Utility class for SQLite operations.
@@ -130,7 +128,7 @@ public class SQLite {
      * Insert a sale and its sale-items in a single transaction.
      * Sale.id is populated from the generated keys.
      */
-    public static void addSale(User user, Sale sale, int[] itemIds) {
+    public static void addSale(Sale sale) {
         String saleSql =
                 "INSERT INTO Sales (UserID, PurchaseDate, Subtotal, Tax, Shipping, FinalTotal) VALUES (?, ?, ?, ?, ?, ?)";
         String itemSql = "INSERT INTO SalesInventoryItem (SalesID, ItemID) VALUES (?, ?)";
@@ -140,7 +138,7 @@ public class SQLite {
 
             // Insert sale record
             try (PreparedStatement psSale = conn.prepareStatement(saleSql, Statement.RETURN_GENERATED_KEYS)) {
-                psSale.setInt(1, user.getId());
+                psSale.setInt(1, sale.getUser().getId());
                 psSale.setString(2, sale.getDate());
                 psSale.setInt(3, sale.getSubtotal());
                 psSale.setInt(4, 0);               // tax placeholder
@@ -157,7 +155,7 @@ public class SQLite {
 
             // Batch insert items
             try (PreparedStatement psItem = conn.prepareStatement(itemSql)) {
-                for (int itemId : itemIds) {
+                for (int itemId : sale.getItems()) {
                     psItem.setInt(1, sale.getID());
                     psItem.setInt(2, itemId);
                     psItem.addBatch();
@@ -174,27 +172,36 @@ public class SQLite {
     /**
      * Retrieve all sales for a user.
      */
-    public static List<Sale> salesReport(User user) {
-        List<Sale> report = new ArrayList<>();
-        String sql =
-                "SELECT SalesID, PurchaseDate, Subtotal, Tax, Shipping, FinalTotal FROM Sales WHERE UserID = ?";
+    public static List<Map<String, Object>> getSalesReportData() {
+        List<Map<String, Object>> reportData = new ArrayList<>();
+        String sql = "SELECT s.SalesID, u.Username AS UserEmail, s.PurchaseDate, " +
+                "s.Subtotal, s.Tax, s.Shipping, s.FinalTotal, " +
+                "GROUP_CONCAT(i.ItemID) AS Items " +
+                "FROM Sales s " +
+                "JOIN Users u ON s.UserID = u.UserId " +
+                "LEFT JOIN SalesInventoryItem si ON s.SalesID = si.SalesID " +
+                "LEFT JOIN Inventory i ON si.ItemID = i.ItemID " +
+                "GROUP BY s.SalesID";
 
         try (Connection conn = DriverManager.getConnection(URL);
-             ResultSet rs = executeQuery(conn, sql, user.getId())) {
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            ResultSetMetaData metaData = rs.getMetaData();
+            int columnCount = metaData.getColumnCount();
 
             while (rs.next()) {
-                Sale sale = new Sale();
-                sale.setId(rs.getInt("SalesID"));
-                sale.setDate(rs.getString("PurchaseDate"));
-                sale.setSubtotal(rs.getInt("Subtotal"));
-                sale.setShipping(rs.getString("Shipping"));
-                sale.setTotal(rs.getInt("FinalTotal"));
-                report.add(sale);
+                Map<String, Object> row = new LinkedHashMap<>();
+                for (int i = 1; i <= columnCount; i++) {
+                    String columnName = metaData.getColumnName(i);
+                    row.put(columnName, rs.getObject(i));
+                }
+                reportData.add(row);
             }
         } catch (SQLException e) {
             e.printStackTrace(System.err);
         }
-        return report;
+        return reportData;
     }
 
     /**
@@ -220,6 +227,34 @@ public class SQLite {
             e.printStackTrace(System.err);
         }
         return list;
+    }
+
+    /**
+     * Retrieve inventory items that haven't been sold
+     */
+    public static List<Inventory> getUnsoldInventory() {
+        List<Inventory> unsoldItems = Collections.synchronizedList(new ArrayList<>());
+        String sql = "SELECT i.ItemID, i.ItemName, i.Price, i.Description, i.Image "
+                + "FROM Inventory i "
+                + "WHERE i.ItemID NOT IN (SELECT ItemID FROM SalesInventoryItem)";
+
+        try (Connection conn = DriverManager.getConnection(URL);
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                Inventory inv = new Inventory();
+                inv.setId(rs.getInt("ItemID"));
+                inv.setName(rs.getString("ItemName"));
+                inv.setPrice(rs.getInt("Price"));
+                inv.setDescription(rs.getString("Description"));
+                inv.setImage(rs.getString("Image"));
+                unsoldItems.add(inv);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(System.err);
+        }
+        return unsoldItems;
     }
 
     /**

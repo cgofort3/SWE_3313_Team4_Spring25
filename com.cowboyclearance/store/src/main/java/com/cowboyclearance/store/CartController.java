@@ -2,11 +2,12 @@ package com.cowboyclearance.store;
 
 import com.cowboyclearance.store.database.Inventory;
 import com.cowboyclearance.store.database.SQLite;
+import com.cowboyclearance.store.database.Sale;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import org.springframework.web.bind.annotation.PostMapping;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -67,6 +68,27 @@ public class CartController {
         model.addAttribute("subtotal", String.format("%.2f", subtotal));
         model.addAttribute("tax", String.format("%.2f", tax));
 
+
+        session.setAttribute("subtotal", String.format("%.2f", subtotal));
+        session.setAttribute("tax", String.format("%.2f", tax));
+
         return "checkout";
+    }
+
+    @PostMapping("/checkout")
+    public String postCheckout(HttpSession session, Model model) {
+        ArrayList<Inventory> cart = (ArrayList<Inventory>)session.getAttribute("cart");
+        if (cart == null || cart.isEmpty()) {
+            return "redirect:/cart";
+        }
+        Sale sale = new Sale();
+        sale.setItems((ArrayList<Integer>)session.getAttribute("cart"));
+        sale.setUser(SQLite.getUser((String)session.getAttribute("user")));
+        sale.setSubtotal((Math.round((Float) session.getAttribute("subtotal"))));
+        sale.setTotal((sale.getSubtotal() * (Integer)session.getAttribute("tax")));
+        SQLite.addSale(sale);
+
+        return "redirect:/";
+
     }
 }

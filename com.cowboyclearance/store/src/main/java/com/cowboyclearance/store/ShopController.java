@@ -22,14 +22,8 @@ public class ShopController {
     String getHome(HttpSession session, Model model){
         if(session.getAttribute("user") != null){
             System.out.println(session.getAttribute("user").toString());
-            List<Inventory> inventory = SQLite.getInventory();
-            /*
-            model.addAttribute("inventory", Arrays.asList(
-                    new Inventory(0, "Cowboy hat", 2010, "A very high quality hat.", "https://i.ebayimg.com/images/g/8D0AAOSwOa1h5GXl/s-l1200.jpg"),
-                    new Inventory(1, "Extra cool cowboy hat", 4059, "An incredibly high quality hat.", "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcR77e2KsBFOvaDZEqu6vVhS-i8Z1lIphYzD50ivytkIEiHp20ylEZ4S89IkNtyjLW5RuJkHF6spW9fXJSztLOsJtpFQMw4Yu0eNIZ0fLV6ozQfmc8eqbMXGEA")
-            ));
+            List<Inventory> inventory = SQLite.getUnsoldInventory();
 
-             */
             model.addAttribute("inventory", inventory);
             model.addAttribute("isAdmin", SQLite.getUser((String)session.getAttribute("user")).getAdmin());
             return "shop";
