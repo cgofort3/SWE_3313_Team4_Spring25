@@ -72,14 +72,14 @@ Below are links to our technical design documents including our language selecti
 ## Section 5: Implementation
 Below are links to our implementation deliverables, including our final video, the finished application source code, the cowboy clearance store README.md with build instructions, and a video store walkthrough. 
 
-###store Source Code Folder
+### store Source Code Folder
 >[store Source Code Folder](com.cowboyclearance/store)
 
-###cowboy clearence store readme
+### cowboy clearence store readme
 >[cowboy clearence store readme](com.cowboyclearance/store/cowboy_clearance_store_readme.md) 
 
-###Video Store Walkthrough
+### Video Store Walkthrough
 >[Video Store Walkthrough](./video/store_walkthrough.mp4)
 
-###Final presentation
+### Final presentation
 >[Final presentation](https://www.loom.com/share/b0c81da024824c51b5162ce287788b50)
