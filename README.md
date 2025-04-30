@@ -74,7 +74,7 @@ Below are links to our implementation deliverables, including our final video, t
 
 >[store Source Code Folder](com.cowboyclearance/store)
 
->[cowboy clearence store readme](store/cowboy_clearance_store_readme.md) 
+>[cowboy clearence store readme](cowboy_clearance_store_readme.md) 
 
 >[Video Store Walkthrough](./video/store_walkthrough.mp4)
 
