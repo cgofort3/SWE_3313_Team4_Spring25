@@ -42,8 +42,14 @@ Follow these instructions to clone, build, and run the project.
 - Install **Git**  
   👉 https://git-scm.com/downloads
 
-- (Optional) Install **IntelliJ IDEA**  
+- Install **IntelliJ IDEA**  
   👉 https://www.jetbrains.com/idea/
+
+> ⚠️ **Important Note:**  
+> This application requires **IntelliJ IDEA Ultimate Edition** due to advanced Spring Boot and database integration features.  
+> The **Community Edition will not run this project correctly**, particularly because it lacks support for full Spring Boot dev tools and database inspection.  
+> A free 30-day trial of Ultimate Edition is available from JetBrains if needed.  
+> 👉 https://www.jetbrains.com/idea/download/
 
 ### 📥 Clone the Repository
 
