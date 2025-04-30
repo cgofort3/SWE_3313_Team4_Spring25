@@ -79,7 +79,7 @@ Below are links to our implementation deliverables, including our final video, t
 >[cowboy clearence store readme](com.cowboyclearance/store/cowboy_clearance_store_readme.md) 
 
 ### Video Store Walkthrough
->[Video Store Walkthrough]([./video/store_walkthrough.mp4](https://www.loom.com/share/717716cba9fb424da6ea1a3e87a487b2))
+>[Video Store Walkthrough](https://www.loom.com/share/717716cba9fb424da6ea1a3e87a487b2)
 
 ### Final presentation
 >[Final presentation](https://www.loom.com/share/b0c81da024824c51b5162ce287788b50)
